@@ -59,21 +59,63 @@ print("sumrange*keyword = ", sum_range(1, 10, 1))
 
 
 class Car:
-    def __init__(self, color, speed):
+    def __init__(self, color, speed = 0):
         self.color = color
         self.speed = speed
-
-    car1 = Car('black', 30)
-    car2 = Car('yellow', 20)
-    car3 = Car('red', 10)
-    car4 = Car('blue', )
 
     def speedUp(self): self.speed += 10
 
     def speedDown(self): self.speed -= 10
 
     def isEqual(self, carB):
-        if self.color == carB.color : return True
-        else : return False
+        if self.color == carB.color: return True
+        else: return False
+
+    def __str__(self):
+        #convert to str
+        return "color = %s, speed = %d" %(self.color, self.speed)
+
+car1 = Car('black', 70)
+car2 = Car('blue', 60)
+car3 = Car('yellow', 50)
+car4 = Car('orange')
+
+print("same color? = ", Car.isEqual(car1, car2))
+print(car1)
+print("[car1]", car1)
+
+
+### 2.12 super(parent) class
+
+class SuperCar(Car):
+    def __init__(self, color, speed = 0, TurboMode = True):
+        super().__init__(color, speed) #no need to redefine self.color, self.speed
+        self.TurboMode = TurboMode
+
+    def setTurboMode(self, TurboMode = True):
+        self.TurboMode = TurboMode
+
+    def speedUp(self): #overriding: re-define function 'speedUp' (which exists in parent class)
+        if self.TurboMode:
+            self.speed += 50
+        else:
+            super().speedUp() #parent class method
+
+    def __str__(self):
+        if self.TurboMode:
+            return "[%s] [speed = %d] Turbo Mode" % (self.color, self.speed)
+        else:
+            return "[%s] [speed = %d] Normal Mode" % (self.color, self.speed)
+
+s1 = SuperCar('SuperBlack', 170)
+s2 = SuperCar('SuperBlue', 160)
+s3 = SuperCar('SuperYellow', 150)
+s4 = SuperCar('SuperOrange')
+
+print(s1)
+print("Lamborghini:", s1)
+
+
+
 
 
