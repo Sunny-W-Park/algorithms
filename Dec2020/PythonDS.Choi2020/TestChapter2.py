@@ -2,42 +2,66 @@
 
 ### 2.1
 
-n = 6
+dan = int(input("구구단 단 입력: "))
 for i in range(1, 10):
-    print("구구단 6단 = ", n*i )
-
-for i in range(1, 10):
-    print(i*n)
+    print(i*dan)
 
 
 ### 2.2 Coding 2.1 using while
 
+dan = int(input("구구단 단 입력:"))
+n = 1
+while n < 10:
+    print("%2d x %2d = " %(dan, n), dan*n)
+    n += 1
 
 
 ### 2.3 Coding 2.1 in reverse order
 
+dan = int(input("구구단 단 입력(역순): "))
+
 for i in range(9, 0, -1):
-    print(i*n)
+    print(i*dan)
 
 
 ### 2.4 Celcius to Farenheit
 
-def CeltoFar(C):
-    F = 32+C*180/100
-    print(F)
+Cel = int(input("Celcius?:"))
+print("%dCelcius to Farenheit: %d" %(Cel, 32+Cel*180/100))
 
-CeltoFar(10)
 
 ### 2.5 Farenheit to Celcius
+
+Far = int(input("Farenheit?: "))
+print("%dFarenheit to Celcius: %d" %(Far, (Far-32)*100/180))
 
 
 ### 2.6 Reverse list (with negative index only)
 
+A = [1, 2, 3, 4]
+
+for i in range(-len(A), 0):
+    print(A[-5-i])
+
 
 ### 2.7 Sum List Values
 
+def listsum(data):
+    sum = 0
+    for n in data:
+        sum += n
+    print(sum)
+
+listsum(A)
+
 
 ### 2.8 Convert to Upper/Lower Case letters
+
+msg = "Data Structures in Python"
+
+print(msg)
+print(msg.upper())
+print(msg.lower())
 
 
 ### 2.9 Dictionary
@@ -48,6 +72,7 @@ print(price)
 
 
 ### 2.10 Lower price -500 from menu in 2.9
+
 
 
 ### 2.11 Cumulative Sum
@@ -72,6 +97,18 @@ def SumRangeN(n):
 print(SumRangeN(10))
 
 
+### 2.15 define reverse()
+
+def reverse(data):
+    output = ''
+    for char in data:
+        output = char + output
+
+    print(output)
+
+reverse("ABCDE")
+
+
 ### 2.16 printNum & printRevNum
 
 def printNum(n):
@@ -84,8 +121,6 @@ def printRevNum(n):
 
 printNum(10)
 printRevNum(10)
-
-
 
 
 
