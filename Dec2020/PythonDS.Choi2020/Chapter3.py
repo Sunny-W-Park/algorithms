@@ -69,6 +69,86 @@ clear()
 display('테스트(초기화)')
 
 
+### Class coding
+
+class ArrayList:
+
+        def __init__(self):
+            self.items = []
+
+        def insert(self, pos, elm):
+            self.items.insert(pos, elm)
+
+        def delete(self, pos):
+            return self.items.pop(pos)
+
+        def isEmpty(self):
+            if len(self.items) == 0:
+                return True
+            else:
+                return False
+
+        def getEntry(self, pos):
+            return self.items[pos]
+
+        def size(self):
+            return len(self.items)
+
+        def clear(self):
+            self.items = []
+
+        def find(self, item):
+            return self.items.index(item)
+
+        def replace(self, pos, elm):
+            self.items[pos] = elm
+
+        def sort(self):
+            self.items.sort()
+
+        def merge(self, lst):
+            self.items.extend(lst)
+
+        def display(self, msg = ''):
+            print(msg, self.size(), self.items)
+
+
+### Test coding
+
+s = ArrayList() #리스트 객체 생성
+
+s.display('파이썬 리스트 테스트')
+
+s.insert(0, 10)
+s.insert(0, 20)
+s.insert(1, 30)
+s.insert(s.size(), 40)
+s.insert(2, 50)
+s.display('테스트(삽입 x 5)')
+
+s.sort()
+s.display('테스트(정렬)')
+
+s.replace(2, 90)
+s.display('테스트(교체 x 1)')
+
+s.delete(2)
+s.delete(size()-1)
+s.delete(0)
+s.display('테스트(삭제 x 3)')
+
+lst = [1, 2, 3]
+s.merge(lst)
+s.display('테스트(병합 x 1)')
+
+s.clear()
+s.display('테스트(초기화)')
+
+
+
+
+
+
 
 
 
