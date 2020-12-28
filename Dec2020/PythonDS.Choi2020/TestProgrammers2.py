@@ -1,3 +1,6 @@
+### 재풀이 요망
+
+
 def solution(arr):
     answer = []
     elm  = min(arr)
