@@ -119,3 +119,45 @@ sortnmerge(lstinput, lstinput2)
 ### 3.9
 
 
+class Set:
+    def __init__(self):
+        self.items = []
+
+    def insert(self, elm):
+        self.items.append(elm)
+
+    def display(self, msg = ""):
+        print(msg, self.items)
+
+    def propersubset(self, setB):
+        setDummy = Set()
+        setDummy.items = []
+        for n in setB.items:
+            if n in self.items:
+                setDummy.items.append(n)
+
+        if list(setDummy.items) == list(setB.items):
+            print("Not Proper Subset")
+
+        else:
+            print("Proper Subset")
+
+
+setA = Set()
+setA.insert(0)
+setA.insert(1)
+setA.display("setA")
+
+setB = Set()
+setB.insert(0)
+setB.insert(1)
+setB.display("setB")
+
+setC = Set()
+setC.insert(0)
+setC.insert(1)
+setC.insert(2)
+setC.display("setC")
+
+setA.propersubset(setB)
+setA.propersubset(setC)

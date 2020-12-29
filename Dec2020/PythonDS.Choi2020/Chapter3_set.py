@@ -28,7 +28,7 @@ class Set:
             else:
                 return False
 
-    def insert(self, pos, elm):
+    def insert(self, elm):
         if elm not in self.items:
             self.items.append(elm)
 
@@ -36,29 +36,51 @@ class Set:
         if elm in self.items:
             self.items.remove(elm)
 
+
 ### Functions between sets
 
     def union(self, setB):
-        setC = Set()
-        setC.items = list(self.items)
+        setA = Set()
+        setA.items = list(self.items)
         for elm in setB.items:
-            if elm not in self.items:
-                setC.items.append(elm)
-        return setC
+            if elm not in setA.items:
+                setA.items.append(elm)
+        return setA
 
     def intersect(self, setB):
-        setC = Set()
-        setC.items = [] #unnecessary 
+        setA = Set()
         for elm in setB.items:
             if elm in self.items:
-                setC.items.append(elm)
-        return setC
+                setA.items.append(elm)
+        return setA
 
     def difference(self, setB):
-        setC = Set()
-        setC.items = []
+        setA = Set()
         for elm in setB.items:
             if elm not in self.items:
-                setC.items.append(elm)
-        return setC
+                setA.items.append(elm)
+        return setA
+
+
+### Test functions
+
+setA = Set()
+setA.insert('phone')
+setA.insert('wallet')
+setA.insert('towel')
+setA.display('SetA: ')
+
+setB = Set()
+setB.insert('comb')
+setB.insert('python')
+setB.insert('wallet')
+setB.insert('basketball')
+setB.display('SetB: ')
+
+setA.union(setB).display('AUB:' )
+setA.intersect(setB).display('A^B:')
+setA.difference(setB).display('A-B:' )
+
+
+
 
