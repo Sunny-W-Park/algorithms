@@ -25,6 +25,19 @@ a = input()
 print(a + 1)
 
 
+#45
+
+a, b = map(int, input().split(" "))
+print(a + b)
+print(a - b)
+print(a*b)
+print(a//b)
+print(a%b)
+d = round(a/b, 2)
+print(d)
+
+
+
 #47
 
 a = input()
