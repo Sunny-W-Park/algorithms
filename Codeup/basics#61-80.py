@@ -1,6 +1,71 @@
 ### basics #61-80
 
-#72.
+#78
+
+a = input()
+a = int(a)
+
+def sumeven(k):
+    sum = 0
+    for i in range(0, k+1):
+        if i % 2 == 0:
+            sum = sum+i
+    print(sum)
+
+sumeven(a)
+
+#77
+
+a = input()
+a = int(a)
+
+def countup(item):
+    printout = -1
+    while printout < item:
+        printout = printout + 1
+        print(printout)
+
+countup(a)
+
+#75
+
+a = input()
+a = int(a)
+
+def countdown(item):
+    count = item
+    for n in range(1, item+1):
+        count = item - n
+        print(count)
+
+countdown(a)
+
+#74
+
+a = input()
+a = int(a)
+
+def countdown(item):
+    count = item
+    for n in range(0, item):
+        count = item - n
+        print(count)
+
+countdown(a)
+
+#73
+
+a = list(map(int, input().split(" ")))
+def printout(items):
+    for i in items:
+        if i != 0:
+            print(i)
+        else:
+            break;
+
+printout(a)
+
+#72
 
 a = input()
 a = int(a)
