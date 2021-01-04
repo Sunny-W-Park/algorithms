@@ -1,5 +1,21 @@
 ### basics #61-80
 
+#80
+
+a = input()
+a = int(a)
+
+def sumtil(k):
+    sum = 0
+    for n in range(0, k):
+            sum = sum + n
+            if sum >= k:
+                break;
+    print(n)
+
+sumtil(a)
+
+
 #78
 
 a = input()
