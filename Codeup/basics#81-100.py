@@ -1,5 +1,52 @@
 #basics #81-100
 
+#1024
+
+a = input()
+a = str(a)
+
+def breakword(word):
+    answer = ''
+    for i in range(0, len(word)):
+        answer = word[i]
+        print('\'' + answer + '\'')
+
+breakword(a)
+
+#84
+
+r, g, b = map(int, input().split(" "))
+
+def rgb(r, g, b):
+    x = 0
+    y = 0
+    z = 0
+    for i in range(0, r):
+        x = i
+        for l in range(0, g):
+            y = l
+            for k in range(0, b):
+                z = k
+                print(x, y, z)
+    print(r * g * b)
+
+rgb(r, g, b)
+
+#81
+
+n, m = map(int, input().split(" "))
+
+def combination(n, m):
+    a = 0
+    b = 0
+    for i in range(1, n+1):
+        a = i
+        for l in range(1, m+1):
+            b = l
+            print(a, b)
+
+combination(n, m)
+
 #92
 
 a, b, c = map(int, input().split(" "))
