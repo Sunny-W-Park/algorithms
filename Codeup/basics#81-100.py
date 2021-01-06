@@ -1,5 +1,19 @@
 #basics #81-100
 
+#93
+
+n = int(input())
+arr = list(map(int, input().split(" ")))
+
+def studentcall(n, arr):
+    stu = list(0 for i in range(23))
+    for i in range(1, 24):
+        stu[i-1] = arr.count(i)
+    for j in range(0, 23):
+        print(stu[j], end = ' ')
+
+studentcall(n, arr)
+
 #1024
 
 a = input()
