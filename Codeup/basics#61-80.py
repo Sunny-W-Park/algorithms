@@ -1,5 +1,30 @@
 ### basics #61-80
 
+###후기
+
+#79
+
+arr = list(map(str, input().split()))
+index = 0
+for i in range(0, len(arr)):
+    if arr[i] == 'q':
+        index = i
+        break;
+        #n번째 q는 찾지 않는다.
+for j in range(0, index+1):
+    print(arr[j])
+
+#76
+
+let = input(str())
+arr = []
+for i in range(ord("a"), ord(let)+1):
+    arr.append(chr(i))
+for j in range(0, len(arr)):
+    print(arr[j], end = " ")
+
+###전기
+
 #80
 
 a = input()

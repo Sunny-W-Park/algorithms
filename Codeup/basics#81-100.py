@@ -1,5 +1,27 @@
 #basics #81-100
 
+#95
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+def findmin(n, arr):
+    minv = arr[0]
+    for i in range(n):
+        if arr[i] < minv:
+            minv = arr[i]
+    print(minv)
+
+findmin(n, arr)
+
+#94
+
+n = int(input())
+arr = list(map(int, input().split()))
+arr.reverse()
+for i in range(n):
+    print(arr[i], end = ' ')
+
 #93
 
 n = int(input())
@@ -7,9 +29,10 @@ arr = list(map(int, input().split(" ")))
 
 def studentcall(n, arr):
     stu = list(0 for i in range(23))
-    for i in range(1, 24):
-        stu[i-1] = arr.count(i)
-    for j in range(0, 23):
+    for i in range(n):
+        stu[arr[i]-1] = stu[arr[i]-1] + 1
+        #arr 배열값을 index 삼아 또 다른 배열을 만들어준다.
+    for j in range(23):
         print(stu[j], end = ' ')
 
 studentcall(n, arr)
