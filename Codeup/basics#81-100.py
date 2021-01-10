@@ -1,5 +1,42 @@
 #basics #81-100
 
+#97
+
+arr = [0 for i in range(19)]
+for i in range(19):
+    arr[i] = list(map(int, input().split()))
+
+num = int(input())
+for t in range(num):
+    x, y = map(int, input().split())
+    for l in range(19):
+        if arr[x-1][l] == 0:
+            arr[x-1][l] = 1
+        else:
+            arr[x-1][l] = 0
+    for l in range(19):
+        if arr[l][y-1] == 0:
+            arr[l][y-1] = 1
+        else:
+            arr[l][y-1] = 0
+
+for m  in range(19):
+    for n in range(19):
+        print(arr[m][n],  end = ' ')
+    print()
+
+#96
+
+n = int(input())
+arr = [[0 for i in range(19)] for j in range(19)]
+for k in range(n):
+    i, j = map(int, input().split())
+    arr[i-1][j-1] = 1
+for i in range(19):
+    for j in range(19):
+        print(arr[i][j], end = ' ')
+    print()
+
 #95
 
 n = int(input())
