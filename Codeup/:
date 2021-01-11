@@ -7,15 +7,17 @@ for i in range(10):
 
 x = 1
 y = 1
-for t in range(14):
-    if arr[x][y] != 2 and arr[x+1][y] != 2 and arr[x][y+1] != 2:
-        if arr[x][y+1] == 0:
-            arr[x][y+1] = 9
-            y = y+1
-        elif arr[x][y+1] == 1:
-            if arr[x+1][y] == 0:
-                arr[x+1][y] = 9
-                x = x+1
+arr[x][y] = 9
+while arr[x][y+1] == 0 or arr[x+1][y] == 0:
+    if arr[x][y+1] == 0:
+        arr[x][y+1] = 9
+        y = y+1
+    elif arr[x][y+1] == 1:
+        if arr[x+1][y] == 0:
+            arr[x+1][y] = 9
+            x = x+1
+        elif arr[x+1][y] == 2:
+            arr[x+1][y] = 9
 
 for i in range(10):
     for j in range(10):
