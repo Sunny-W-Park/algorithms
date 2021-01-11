@@ -139,7 +139,7 @@ print(expr1, '----->', evalPostfix(expr1))
 print(expr2, '----->', evalPostfix(expr2))
 
 
-def precednce(op):
+def precedence(op):
     if (op == '(' or op == ')'): return 0
     elif (op == '+' or op == '-'): return 1
     elif (op == '*' or op == '/'): return 2
