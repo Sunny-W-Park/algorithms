@@ -1,6 +1,23 @@
 #basics #81-100
 
-#99
+#1508 (미해결)
+
+n = int(input())
+arr = [[0 for i in range(n)] for j in range(n)]
+for k in range(n):
+    arr[k] = list(map(int, input().split()))
+
+for p in range(n):
+    for q in range(len(arr[p])):
+        arr[p+1][q+1] = arr[p+1][q] - arr[p][q]
+
+for m in range(n):
+    for l in range(len(arr[m])):
+        print(arr[m][l], end = ' ')
+    print()
+
+
+#99 (미해결)
 arr = [0 for i in range(10)]
 for i in range(10):
     arr[i] = list(map(int, input().split()))
