@@ -1,3 +1,6 @@
+#4-4 게임 개발
+
+
 
 
 #4-3 왕실의 나이트
@@ -17,6 +20,7 @@ for step in steps:
     #y좌표 경우의 수
     if newr >= 1 and newr <= 8 and newc >= 1 and newc <= 8:
         result += 1
+
 print(result)
 
 #4-2 시각
