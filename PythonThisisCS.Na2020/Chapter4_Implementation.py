@@ -1,7 +1,58 @@
 #4-4 게임 개발
 
+n, m = map(int, input().split())
+x, y, d = map(int, input().split())
+arr = [[0 for i in range(m)] for j in range(n)]
+for k in range(n):
+    arr[k] = list(map(int, input().split()))
+
+dx = [1, 0, -1, 0]
+dy = [0, 1, 0, -1]
+#북, 동, 남, 서
+#좌표 움직이는 연산에 사용 dx[d], dy[d]
+
+count = 1
+turn = 0
+arr[x][y] = 1
+#초기값
+
+while True:
+    cd = (d+3) % 4
+    #changed direction: 원형 큐 개념 활용
+    nx = x + dx[cd]
+    ny = y + dy[cd]
 
 
+
+    #시작과 동시에 왼쪽으로 90도
+
+
+
+    nx = x + dx[d]
+    ny = y + dy[d]
+    if arr[nx][ny] == 0:
+        arr[nx][ny] = 1
+        x = nx
+        y = ny
+        count += 1
+        turn_time = 0
+    else:
+        turn()
+        turn_time += 1
+    if turn_time == 4:
+    #네 방향 모두 갈 수 없는 경우
+        nx = x - dx[d]
+        ny = y - dy[d]
+        #방향 유지한채로 뒤로 이동
+        if arr[nx][ny] == 0:
+            arr[nx][ny] = 1
+            x = nx
+            y = nx
+        else:
+         break;
+        turn_time = 0
+
+print(count)
 
 #4-3 왕실의 나이트
 
