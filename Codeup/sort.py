@@ -1,3 +1,24 @@
+#1420
+
+n = int(input()) 
+arr = [[0 for m in range(n)] for l in range(n)]
+newarr = [[0 for m in range(n)] for l in range(n)]
+
+for i in range(n):
+    arr[i] = list(map(str, input().split()))
+
+for j in range(n):
+    arr[j][1] = int(arr[j][1])
+
+for k in range(n):
+    newarr[k][0] = arr[k][1]
+    newarr[k][1] = arr[k][0]
+
+newarr.sort()
+print(newarr[-3][1])
+
+
+
 #1173
 
 a, b = map(int, input().split())
