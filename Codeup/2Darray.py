@@ -1,3 +1,25 @@
+#1466
+
+n, m = map(int, input().split())
+arr = [[0 for i in range(m)] for j in range(n)]
+newarr = [[0 for i in range(m)] for j in range(n)]
+begin = 1
+
+for k in range(n):
+    arr[k][0] = begin + k
+    for l in range(m):
+        arr[k][l] = arr[k][0] + n*l
+
+for k in range(n):
+    arr[k].sort(reverse = True)
+
+for k in range(n):
+    newarr[k] = arr[-k-1]
+    for l in range(m):
+        print(newarr[k][l], end = ' ')
+    print()
+
+
 #1465
 
 n, m = map(int, input().split())
