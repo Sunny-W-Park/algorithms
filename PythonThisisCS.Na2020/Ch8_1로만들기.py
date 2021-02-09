@@ -7,6 +7,25 @@ Original file is located at
     https://colab.research.google.com/drive/13Oge_4rAeP2WDMqUJSyu_K2GwN74JBNH
 """
 
+#1로 만들기 (재풀이)
+
+X = int(input())
+arr = [0] * 100
+
+for i in range(2, X+1):
+    arr[i] = arr[i-1] + 1
+
+    if i % 2 == 0:
+        arr[i] = min(arr[i], arr[i // 2] + 1)
+
+    if i % 3 == 0:
+        arr[i] = min(arr[i], arr[i // 3] + 1)
+
+    if i % 5 == 0:
+        arr[i] = min(arr[i], arr[i // 5] + 1)
+
+print(arr)
+
 #1로 만들기 (정답)
 
 X = int(input())
