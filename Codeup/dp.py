@@ -1,3 +1,13 @@
+#2640
+n, k = map(int, input().split())
+arr = [0 for i in range(1000000)]
+
+arr[0] = n
+for i in range(1, k+1):
+    arr[i] = arr[i-1] * n
+
+print(arr[k-1] % 1000000007)
+
 #2602
 
 arr = []
