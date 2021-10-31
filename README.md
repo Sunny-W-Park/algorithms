@@ -1,5 +1,5 @@
 # CSStudies
-Personal CS Studies (from Dec2020)
+Daily CS Study (from Dec2020)
 
 <pre><code>
 
