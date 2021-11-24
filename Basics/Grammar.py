@@ -111,13 +111,71 @@ a.remove(1)
 print(a)
 
 
+#2. 조건문
+
+a = 48
+if a >= 90:
+    print("A")
+elif a >= 80 and a < 90:
+    print("B")
+elif a >= 70 and a < 80:
+    print("C")
+else: 
+    print("F")
+
+#pass문
+
+a = 85
+if a >= 80:
+    pass
+else:
+    print("성적이 80점 미만입니다.")
+print("프로그램을 종료합니다.")
 
 
+#3. 반복문
+
+#3.1 While문
+
+i = 1
+result = 0
+while i <= 9:
+    result += i
+    i += 1
+print(result)
+
+i = 1
+result = 0
+while i <= 9:
+    if i % 2 == 1:
+        result += i
+    i += 1
+print(result)
 
 
+#3.2 For문
 
+result = 0
+for i in range(10):
+    result += i
+print(result)
 
+#continue
 
+scores = [1, 2, 3, 4, 5]
+cheating_list = {2, 4}
+for i in range(5):
+    if i+1 in cheating_list:
+        continue
+    if scores[i] >= 3:
+        print(i+1, "번 학생은 합격입니다")
+
+#구구단 출력
+
+for i in range(1, 10):
+    for j in range(1, 10):
+        print(i, "X", j, "=", i*j)
+    print()
 
 
 
