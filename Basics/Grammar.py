@@ -178,4 +178,27 @@ for i in range(1, 10):
     print()
 
 
+#4. 함수
+
+#global 키워드 변수 저장
+
+a = 0
+
+def func():
+    global a        #global 없을시 func() 함수에서 변수 인식 불가
+    a += 1
+
+for i in range(10):
+    func()
+
+print(a)
+
+
+#5. 입출력
+
+#sys 라이브러리, 데이터 입력 속도 up
+import sys
+data = sys.stdin.readline().rstrip()
+print(data)
+
 
