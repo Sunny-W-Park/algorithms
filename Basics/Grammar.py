@@ -202,3 +202,24 @@ data = sys.stdin.readline().rstrip()
 print(data)
 
 
+#6. 주요 라이브러리의 문법과 유의점
+
+#6.1 내장함수
+#대표적인 내장함수: sum(), input(), print(), min(), max(), eval(), sorted() 등 별도의 import 없이 사용 가능
+#리스트와 같은 iterable 객체는 기본으로 sort() 함수를 내장
+
+#6.2 itertools
+#permutation
+from itertools import permutations
+
+data = ['A', 'B', 'C']
+result = list(permutations(data, 3))
+print(result)
+
+#combination
+from itertools import combinations
+
+data = ['A', 'B', 'C']
+result = list(combinations(data, 2))
+print(result)
+
