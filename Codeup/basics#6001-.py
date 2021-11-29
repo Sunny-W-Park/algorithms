@@ -171,6 +171,132 @@ print('%o'% a)
 a = ord(input())
 print(a)
 
+#6031
+
+a = input()
+a = int(a)
+print(chr(a))
+
+#6032
+
+a = input()
+a = int(a)
+print(-a)
+
+#6033
+
+a = input()
+a = ord(a)
+a = a+1
+print(chr(a))
+
+#6034
+
+a, b = map(int, input().split(" "))
+print(a-b)
+
+#6035
+
+a, b = map(float, input().split(" "))
+print(a*b)
+
+#6036
+
+a, n = input().split(" ")
+n = int(n)
+print(a*n)
+
+#6037
+
+n = input()
+n = int(n)
+a = input()
+a = str(a)
+print(a*n)
+
+#6038
+
+a, b = map(int, input().split(" "))
+print(a**b)
+
+#6039
+
+a, b = map(float, input().split(" "))
+print(a**b)
+
+#6040
+
+a, b = map(int, input().split(" "))
+print(a//b)
+
+#6041
+
+a, b = map(int, input().split(" "))
+print(a%b)
+
+#6042
+
+a = input()
+a = print(round(float(a), 2))
+
+#6043
+
+a, b = map(float, input().split(" "))
+print("{:.3f}".format(a/b))
+
+#6044
+
+a, b = map(int, input().split(" "))
+print(a+b)
+print(a-b)
+print(a*b)
+print(a//b)
+print(a%b)
+print("{:.2f}".format(a/b))
+
+#6045
+
+a, b, c = map(int, input().split(" "))
+d = a+b+c
+e = (a+b+c)/3
+print(d, "{:.2f}".format(e))
+
+#6046
+
+a = input()
+a = int(a)
+print(2*a)
+
+#6047
+
+a, b = map(int, input().split(" "))
+c = 2**b
+print(a*c)
+
+#6048
+
+a, b = map(int, input().split(" "))
+if a < b:
+    print("True")
+else:
+    print("False")
+
+#6049
+
+a, b = map(int, input().split(" "))
+if a == b:
+    print("True")
+else:
+    print("False")
+
+#6050
+
+a, b = map(int, input().split(" "))
+if b >= a:
+    print("True")
+else:
+    print("False")
+
 #6087
 
 a = int(input())
