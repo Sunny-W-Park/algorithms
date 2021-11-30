@@ -1,3 +1,186 @@
+#6070
+
+a = input()
+a = int(a)
+winter = [12, 1, 2]
+spring = [3, 4, 5]
+summer = [6, 7, 8]
+fall = [9, 10, 11]
+if a in winter:
+    print("winter")
+elif a in spring:
+    print("spring")
+elif a in summer:
+    print("summer")
+elif a in fall:
+    print("fall")
+
+#6069
+
+a = input()
+a = str(a)
+if a == "A":
+    print("best!!!")
+elif a == "B":
+    print("good!!")
+elif a == "C":
+    print("run!")
+elif a == "D":
+    print("slowly~")
+else:
+    print("what?")
+
+#6068
+
+a = input()
+a = int(a)
+if 100 >= a >= 90:
+    print("A")
+elif 89 >= a >= 70:
+    print("B")
+elif 69 >= a >= 40:
+    print("C")
+elif 39 >= a >= 0:
+    print("D")
+
+#6067
+
+a = input()
+a = int(a)
+if 0 >= a and a % 2 == 0:
+    print("A")
+elif 0 >= a and a % 2 == 1:
+    print("B")
+elif a >= 0 and a % 2 == 0:
+    print("C")
+elif a >= 0 and a % 2 == 1:
+    print("D")
+
+#6066
+
+a, b, c = map(int, input().split(" "))
+
+list = [a, b, c]
+
+for i in range(3):
+    if list[i] % 2 == 0:
+        print("even")
+    else:
+        print("odd")
+
+#6065
+
+a, b, c = map(int, input().split(" "))
+if a % 2 == 0:
+    print(a)
+
+if b % 2 == 0:
+    print(b)
+
+if c % 2 == 0:
+    print(c)
+
+#6064
+
+a, b, c = map(int, input().split(" "))
+print(min(a, b, c))
+
+#6063
+
+a, b = map(int, input().split(" "))
+print(max(a, b))
+
+#6062
+
+a, b = map(int, input().split(" "))
+c = a ^ b
+print(c)
+
+#6061
+
+a, b = map(int, input().split(" "))
+c = a | b
+print(c)
+
+#6060
+
+a, b = map(int, input().split(" "))
+c = a & b
+print(c)
+
+#6059
+
+a = input()
+a = int(a)
+b = ~a
+print(b)
+
+#6058
+
+a, b = map(int, input().split(" "))
+if bool(a) == False and bool(b) == False:
+    print("True")
+else:
+    print("False")
+
+#6057
+
+a, b = map(int, input().split(" "))
+if bool(a) == bool(b):
+    print("True")
+else:
+    print("False")
+
+#6056
+
+a, b = map(int, input().split(" "))
+if bool(a) != bool(b):
+    print("True")
+else:
+    print("False")
+
+#6055
+
+a, b = map(int, input().split(" "))
+if bool(a) == True or bool(b) == True:
+    print("True")
+else:
+    print("False")
+
+#6054
+
+a, b = map(int, input().split(" "))
+if bool(a) == True and bool(b) == True:
+    print("True")
+else:
+    print("False")
+
+#6053
+
+a = input()
+a = int(a)
+if bool(a) == False:
+    print("True")
+else:
+    print("False")
+
+#6052
+
+a = input()
+a = int(a)
+if a == 0:
+    print("False")
+else:
+    print("True")
+
+#6051
+
+a, b = map(int, input().split(" "))
+if a != b:
+    print("True")
+else:
+    print("False")
+
 #6050
 
 a, b = map(int, input().split(" "))
