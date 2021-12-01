@@ -480,6 +480,143 @@ elif a in summer:
 elif a in fall:
     print("fall")
 
+#6071
+
+list = [1]
+
+while list[-1] != 0:
+    a = input()
+    list.append(int(a))
+
+for i in range(1, len(list)-1):
+    print(list[i])
+
+#6072
+
+a = input()
+a = int(a)
+
+while a != 0:
+    print(a)
+    a = a-1
+
+#6073
+
+a = input()
+a = int(a)
+
+while a != 0:
+    a = a-1
+    print(a)
+
+#6074
+
+a = input()
+list = []
+list.append(a)
+b = 97
+
+while list[-1] != 'a':
+    b = int(ord(list[-1]))-1
+    list.append(chr(b))
+
+c = ord(a) - b
+#print(c)
+
+for i in range(1, c+2):
+    print(list[-i], end = ' ')
+
+#6075
+
+a = input()
+a = int(a)
+b = int(a)
+list = []
+list.append(a)
+
+while a != 0:
+    a = a-1
+    list.append(a)
+
+for i in range(1, b+2):
+    print(list[-i])
+
+#6076
+
+a = input()
+a = int(a)
+b = int(a)
+list = []
+list.append(a)
+
+while a != 0:
+    a = a-1
+    list.append(a)
+
+for i in range(1, b+2):
+    print(list[-i])
+
+#6077
+
+a = input()
+a = int(a)
+sum = 0
+
+for i in range(a):
+    if a != 0:
+        if a % 2 == 0:
+            sum += a
+            a = a-1
+        else:
+            a = a-1
+
+print(sum)
+
+#6078
+
+list = [0]
+
+while list[-1] != 'q':
+    b = input()
+    list.append(b)
+
+for i in range(1, len(list)):
+    print(list[i], end = '\n')
+
+#6079
+
+a = input()
+a = int(a)
+b = 0
+c = 0
+
+for i in range(a):
+    if a == b:
+        break
+    elif a > b:
+        c += 1
+        b = b+c
+    else:
+        pass
+
+print(c)
+
+#6080
+
+n, m = map(int, input().split(" "))
+
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        print(i, j)
+
+#6081
+
+n, m = map(int, input().split(" "))
+
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        print(i, j)
+
 #6087
 
 a = int(input())
