@@ -1,3 +1,18 @@
+#6082(재풀이)
+
+n = int(input())
+
+list = []
+
+for i in range(1, n+1):
+    if i%10 == 3 or i%10 == 6 or i%10 == 9:
+        list.append("X")
+    else:
+        list.append(i)
+
+for j in range(n):
+    print(list[j], end = ' ')
+
 #6082
 
 n = int(input())
