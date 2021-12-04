@@ -1,3 +1,42 @@
+#6095
+
+n = int(input())
+position = []
+
+for i in range(n):
+    a = input().split()
+    a = position.append(a)
+
+for i in range(n):
+    position[i][0] = int(position[i][0])
+    position[i][1] = int(position[i][1])
+
+list = [[0 for _ in range(19)] for _ in range(19)]
+
+for j in range(n):
+        list[position[j][0]-1][position[j][1]-1] += 1
+
+for r in range(19):
+    for q in range(19):
+        print(list[r][q], end = ' ')
+    print(" ")
+
+#6094
+
+n = int(input())
+a = input().split()
+
+for i in range(n):
+    a[i] = int(a[i])
+
+min = a[0]
+
+for i in range(n):
+    if min > a[i]:
+         min = a[i]
+
+print(min)
+
 #6093
 
 n = int(input())
