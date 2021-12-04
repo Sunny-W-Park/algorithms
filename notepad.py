@@ -1,3 +1,110 @@
+#6093
+
+n = int(input())
+a = input().split()
+
+list = []
+
+for i in range(n):
+    list.append(a[-i-1])
+
+for j in range(n):
+    print(list[j], end = ' ')
+
+#6092
+
+n = int(input())
+a = input().split()
+
+for i in range(n):
+    a[i] = int(a[i])
+
+list = [0 for _ in range(23)]
+
+for j in range(n):
+    list[a[j]-1] += 1
+
+for k in range(23):
+    print(list[k], end = ' ')
+
+#6091
+
+a, b, c = map(int, input().split())
+
+d = 1
+
+while d % a != 0 or d % b != 0 or d % c != 0:
+    d = d + 1
+
+print(d)
+
+#6090
+
+a, m, d, n = map(int, input().split())
+result = a
+for i in range(1, n):
+    result = result * m + d
+print(result)
+
+#6089
+
+a, r, n = map(int, input().split())
+result = a
+for i in range(1, n):
+    result = result * r
+print(result)
+
+#6088
+
+a, r, n = map(int, input().split())
+result = a
+for i in range(1, n):
+    result = result * r
+print(result)
+
+#6087
+
+a, d, n = map(int, input().split())
+result = a
+for i in range(1, n):
+    result = result + d
+print(result)
+
+#6086
+
+n = int(input())
+sum = 0
+for i in range(n+1):
+    if n > sum:
+        sum += i
+    else:
+        break
+
+print(sum)
+
+#6085
+
+w, h, b = map(int, input().split(" "))
+MB = (w * h * b) / 8 / 2**10 / 2**10
+print("{:.2f}".format(MB) + " " + "MB")
+
+#6084
+
+h, b, c, s = map(int, input().split(" "))
+MB = (h * b * c * s) / 8 / 2**10 / 2**10
+print("{:.1f}".format(MB) + " " + "MB")
+
+#6083
+
+r, g, b = map(int, input().split(" "))
+
+for i in range(r):
+    for j in range(g):
+        for k in range(b):
+            print(i, j, k)
+
+print(r * g * b)
+
 #6082(재풀이)
 
 n = int(input())
