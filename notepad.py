@@ -1,3 +1,47 @@
+#6096
+
+#바둑판 저장
+list = []
+
+for _ in range(19):
+    list.append(input().split())
+
+for i in range(19):
+    for j in range(19):
+        list[i][j] = int(list[i][j])
+
+#뒤집기 횟수 저장
+n = int(input())
+
+#좌표 저장
+position = []
+
+for _ in range(n):
+    position.append(input().split())
+
+for k in range(n):
+    position[k][0] = int(position[k][0])
+    position[k][1] = int(position[k][1])
+
+for p in range(n):
+    for q in range(19):
+        if list[position[p][0]-1][q] == 0:
+            list[position[p][0]-1][q] = 1
+
+        elif list[position[p][0]-1][q] == 1:
+            list[position[p][0]-1][q] = 0
+
+        if list[q][position[p][1]-1] == 0:
+            list[q][position[p][1]-1] = 1
+
+        elif list[q][position[p][1]-1] == 1:
+            list[q][position[p][1]-1] = 0
+
+for x in range(19):
+    for y in range(19):
+        print(list[x][y], end = ' ')
+    print(' ')
+
 #6095
 
 n = int(input())
@@ -14,7 +58,7 @@ for i in range(n):
 list = [[0 for _ in range(19)] for _ in range(19)]
 
 for j in range(n):
-        list[position[j][0]-1][position[j][1]-1] += 1
+       list[position[j][0]-1][position[j][1]-1] = 1
 
 for r in range(19):
     for q in range(19):
