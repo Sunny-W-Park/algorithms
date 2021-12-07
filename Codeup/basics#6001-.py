@@ -822,3 +822,32 @@ for x in range(19):
     for y in range(19):
         print(list[x][y], end = ' ')
     print(' ')
+
+#6097
+
+#입력값 저장
+h, w = map(int, input().split())
+n = int(input())
+list = [[0 for _ in range(w)] for _ in range(h)]
+stick = []
+for _ in range(n):
+    stick.append(input().split())
+
+for i in range(n):
+    for j in range(4):
+        stick[i][j] = int(stick[i][j])
+
+#격자판 값 변형
+for p in range(n):
+    for q in range(stick[p][0]):
+        if stick[p][1] == 0:
+            list[int(stick[p][2])-1][int(stick[p][3])-1+q] = 1
+        elif stick[p][1] == 1:
+            list[int(stick[p][2])-1+q][int(stick[p][3])-1] = 1
+
+#출력
+for i in range(h):
+    for j in range(w):
+        print(list[i][j], end = ' ')
+    print()
+

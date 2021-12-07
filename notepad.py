@@ -1,3 +1,68 @@
+#6098
+
+list = []
+
+for _ in range(10):
+    list.append(input().split())
+
+for i in range(10):
+    for j in range(10):
+        list[i][j] = int(list[i][j])
+
+index = [2, 2]
+x = index[0]-1
+y = index[1]-1
+pos_right = list[x][y+1]
+pos_bottom = list[x+1][y]
+
+for _ in range(100):
+    if pos_right == 0:
+        list[x][y] = 9
+        index[1] += 1
+    elif pos_right == 1 and pos_bottom == 0:
+        list[x][y] = 9
+        index[0] += 1
+    elif pos_right == 1 and pos_bottom == 1:
+        list[x][y] = 9
+    elif pos_right == 2 or pos_bottom == 2:
+        list[x][y] = 9
+
+print(index)
+print(pos_right, pos_bottom)
+
+for i in range(10):
+    for j in range(10):
+        print(list[i][j], end = ' ')
+    print()
+
+#6097
+
+#입력값 저장
+h, w = map(int, input().split())
+n = int(input())
+list = [[0 for _ in range(w)] for _ in range(h)]
+stick = []
+for _ in range(n):
+    stick.append(input().split())
+
+for i in range(n):
+    for j in range(4):
+        stick[i][j] = int(stick[i][j])
+
+#격자판 값 변형
+for p in range(n):
+    for q in range(stick[p][0]):
+        if stick[p][1] == 0:
+            list[int(stick[p][2])-1][int(stick[p][3])-1+q] = 1
+        elif stick[p][1] == 1:
+            list[int(stick[p][2])-1+q][int(stick[p][3])-1] = 1
+
+#출력
+for i in range(h):
+    for j in range(w):
+        print(list[i][j], end = ' ')
+    print()
+
 #6096
 
 #바둑판 저장
