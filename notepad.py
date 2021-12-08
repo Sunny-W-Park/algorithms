@@ -1,38 +1,34 @@
 #6098
 
-list = []
+array = []
 
 for _ in range(10):
-    list.append(input().split())
+    array.append(list(map(int, input().split())))
+
+x, y = 1, 1
+
+while True:
+    if array[x][y] == 0:
+        array[x][y] = 9
+    elif array[x][y] == 2:
+        array[x][y] = 9
+        break
+
+    #우측 이동
+    if array[x][y+1] != 1:
+        y += 1
+    #하단 이동
+    elif array[x+1][y] != 1:
+        x += 1
+
+    #이동 불가
+    if array[x][y+1] == 1 and array[x+1][y] == 1:
+        array[x][y] = 9
+        break
 
 for i in range(10):
     for j in range(10):
-        list[i][j] = int(list[i][j])
-
-index = [2, 2]
-x = index[0]-1
-y = index[1]-1
-pos_right = list[x][y+1]
-pos_bottom = list[x+1][y]
-
-for _ in range(100):
-    if pos_right == 0:
-        list[x][y] = 9
-        index[1] += 1
-    elif pos_right == 1 and pos_bottom == 0:
-        list[x][y] = 9
-        index[0] += 1
-    elif pos_right == 1 and pos_bottom == 1:
-        list[x][y] = 9
-    elif pos_right == 2 or pos_bottom == 2:
-        list[x][y] = 9
-
-print(index)
-print(pos_right, pos_bottom)
-
-for i in range(10):
-    for j in range(10):
-        print(list[i][j], end = ' ')
+        print(array[i][j], end = ' ')
     print()
 
 #6097
