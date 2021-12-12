@@ -46,3 +46,22 @@ elif x < 0 and y < 0:
 elif x > 0 and y < 0:
     print("4")
 
+#2844
+
+H, M = map(int, input().split())
+
+if M - 45 < 0:
+    M = 60 - (45 - M)
+    if H == 0:
+        H = 23
+        print(H, M)
+    else:
+        H = H - 1
+        print(H, M)
+
+else:
+    M = M - 45
+    H = H
+    print(H, M)
+
+

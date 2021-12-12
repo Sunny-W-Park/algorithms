@@ -851,3 +851,37 @@ for i in range(h):
         print(list[i][j], end = ' ')
     print()
 
+#6098
+
+array = []
+
+for _ in range(10):
+    array.append(list(map(int, input().split())))
+
+x, y = 1, 1
+
+while True:
+    if array[x][y] == 0:
+        array[x][y] = 9
+    elif array[x][y] == 2:
+        array[x][y] = 9
+        break
+
+    #우측 이동
+    if array[x][y+1] != 1:
+        y += 1
+    #하단 이동
+    elif array[x+1][y] != 1:
+        x += 1
+
+    #이동 불가
+    if array[x][y+1] == 1 and array[x+1][y] == 1:
+        array[x][y] = 9
+        break
+
+for i in range(10):
+    for j in range(10):
+        print(array[i][j], end = ' ')
+    print()
+
+
