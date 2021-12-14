@@ -98,3 +98,17 @@ blank = ' '
 for i in range(1, n+1):
     print(blank * (n-i) + result * i)
 
+#10871
+
+n, x = map(int, input().split())
+data = list(map(int, input().split()))
+result = []
+
+for i in range(n):
+    if x > data[i]:
+        result.append(data[i])
+
+for j in range(len(result)):
+    print(result[j], end = ' ')
+
+
