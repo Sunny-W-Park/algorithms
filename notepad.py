@@ -2,6 +2,77 @@ import sys
 
 #-------BOJ-------
 
+#10871
+
+n, x = map(int, input().split())
+data = list(map(int, input().split()))
+result = []
+
+for i in range(n):
+    if x > data[i]:
+        result.append(data[i])
+
+for j in range(len(result)):
+    print(result[j], end = ' ')
+
+#2439
+
+n = int(input())
+result = '*'
+blank = ' '
+
+for i in range(1, n+1):
+    print(blank * (n-i) + result * i)
+
+#2438
+
+n = int(input())
+result = '*'
+
+for i in range(1, n+1):
+    print(result * i)
+
+#11022
+
+n = int(input())
+list = []
+
+for i in range(n):
+    a, b = map(int, sys.stdin.readline().split())
+    list.append([a, b, a+b])
+
+for j in range(n):
+    print("Case #%d: %d + %d = %d" % (j+1, list[j][0], list[j][1], list[j][2]))
+
+#11021
+
+n = int(input())
+list = []
+
+for i in range(n):
+    a, b = map(int, sys.stdin.readline().split())
+    list.append(a+b)
+
+for j in range(n):
+    print("Case #%d: %d" % (j+1, list[j]))
+
+#2742
+
+n = int(input())
+
+result = n
+
+for i in range(0, n):
+    result = n - i
+    print(result)
+
+#2741
+
+n = int(input())
+
+for i in range(1, n+1):
+    print(i)
+
 #15552
 
 t = int(input())
