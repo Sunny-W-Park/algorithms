@@ -2,6 +2,79 @@ import sys
 
 #-------BOJ-------
 
+#4344
+
+n = int(input())
+arr = [0 for _ in range(n)]
+
+for i in range(n):
+    arr[i] = list(map(int, sys.stdin.readline().split()))
+
+avg = [0 for _ in range(n)]
+
+for j in range(n):
+    avg[j] = (sum(arr[j]) - arr[j][0]) / arr[j][0]
+
+count = [0 for _ in range(n)]
+
+for p in range(n):
+    for q in range(arr[p][0]+1):
+        if q >= 1:
+            if arr[p][q] > avg[p]:
+                count[p] += 1
+
+for x in range(n):
+    count[x] = float((count[x] / arr[x][0]) * 100)
+    print('{:.3f}%'.format(count[x]))
+
+
+#8958
+
+n = int(input())
+list = []
+
+for i in range(n):
+    list.append(str(input()))
+
+count = []
+
+for j in range(n):
+    count.append([0 for k in range(len(list[j]))])
+
+for p in range(n):
+    for q in range(len(list[p])):
+        if list[p][q] == 'O':
+            count[p][q] = 1
+
+for p in range(n):
+    for q in range(len(count[p])):
+        if q >= 1:
+            if count[p][q] >= 1 and count[p][q-1] >= 1:
+                count[p][q] = count[p][q-1] + 1
+
+for x in range(n):
+    print(sum(count[x]))
+
+
+#1546
+
+n = int(input())
+
+list = list(map(int, sys.stdin.readline().split()))
+
+max = list[0]
+
+for i in range(n):
+    if list[i] > max:
+        max = list[i]
+
+result = []
+
+for j in range(n):
+    result.append(list[j] / max * 100)
+
+print(sum(result) / n)
+
 #3052
 
 list = []
