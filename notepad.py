@@ -5,16 +5,21 @@ import sys
 #1065 **재풀이 요망**
 
 n = int(input())
-result = set()
+list = []
 
 for i in range(1, n+1):
-    for j in range(int(str(i))):
-        if (int(str(j+2)) - int(str(j+1))) == (int(str(j+1)) - int(str(j))):
-            print(int(str(i)[j+2]), int(str(i)[j+1]), int(str((i)[j])))
-            result.add(i)
+    if 100 > i:
+        list.append(i)
 
-for k in result:
-    print(k)
+    elif 1000 > i >= 100:
+        check = []
+        for j in range(len(str(i))):
+            check.append(int(str(i)[j]))
+
+        if check[2] - check[1] == check[1] - check[0]:
+            list.append(i)
+
+print(len(list))
 
 #4673
 
