@@ -2,6 +2,43 @@ import sys
 
 #-------BOJ-------
 
+#1065 **재풀이 요망**
+
+n = int(input())
+result = set()
+
+for i in range(1, n+1):
+    for j in range(int(str(i))):
+        if (int(str(j+2)) - int(str(j+1))) == (int(str(j+1)) - int(str(j))):
+            print(int(str(i)[j+2]), int(str(i)[j+1]), int(str((i)[j])))
+            result.add(i)
+
+for k in result:
+    print(k)
+
+#4673
+
+#natural_num = set(range(1, 10001))
+#generated_num = set()
+#
+#for i in range(1, 10001):
+#    for j in str(i):
+#        i += int(j)
+#    generated_num.add(i)
+#
+#result_num = sorted(natural_num - generated_num)
+#
+#for k in result_num:
+#    print(k)
+
+#15596
+
+def solve(a: list) -> int:
+    ans = 0
+    for i in range(len(a)):
+        ans += a[i]
+    return ans
+
 #4344
 
 n = int(input())
