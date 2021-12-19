@@ -125,8 +125,32 @@ for i in range(len(s)):
 
 print(len(s) - count)
 
-
-
 #1316
 
+n = int(input())
+words = []
+result = 0
+
+for _ in range(n):
+    words.append(str(input()))
+
+words_shorten = []
+for i in range(n):
+    s = ''
+    for j in range(len(words[i])):
+        if j == 0:
+            s = s + words[i][j]
+        else:
+            if words[i][j] != s[-1]:
+                s = s + words[i][j]
+    words_shorten.append(s)
+
+for p in range(len(words_shorten)):
+    checker = set()
+    for q in range(len(words_shorten[p])):
+        checker.add(words_shorten[p][q])
+    if len(checker) == len(words_shorten[p]):
+        result += 1
+
+print(result)
 
