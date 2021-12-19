@@ -76,4 +76,57 @@ if len(result) > 1:
 elif len(result) == 1:
     print(result[0].upper())
 
+#1152
+
+words = input().split()
+print(len(words))
+
+#2908
+
+a, b = map(str, input().split())
+list = []
+a_reverse = a[2]+a[1]+a[0]
+b_reverse = b[2]+b[1]+b[0]
+list.append(a_reverse)
+list.append(b_reverse)
+
+print(max(list))
+
+#5622
+
+dial = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
+results = 0
+
+s = str(input())
+
+for i in range(len(s)):
+     for j in range(len(dial)):
+         for k in range(len(dial[j])):
+             if dial[j][k] == s[i]:
+                 results += j+3
+
+print(results)
+
+#2941
+
+s = str(input())
+words = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+count = 0
+
+for i in range(len(s)):
+    if len(s)-1 > i:
+        for j in range(len(words)):
+            if s[i]+s[i+1] == words[j]:
+                count += 1
+    if len(s)-2 > i:
+        for j in range(len(words)):
+            if s[i]+s[i+1]+s[i+2] == words[j]:
+                count += 1
+
+print(len(s) - count)
+
+
+
+#1316
+
 
