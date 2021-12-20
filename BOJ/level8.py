@@ -12,3 +12,48 @@ else:
 
 print(q)
 
+#2292
+
+n = int(input())
+
+i = 0
+start = 1
+end = 1
+
+while True:
+    if end >= n >= start:
+        print(i+1)
+        break
+    else:
+        i = i+1
+        start = end + 1
+        end = end + 6 * i
+
+#1193
+
+x = int(input())
+
+index_start = 1
+index_end = 1
+d = 1
+
+while True:
+    if index_end >= x >= index_start:
+        break
+    else:
+        index_start = index_start + d
+        d = d + 1
+        index_end = index_end + d
+
+index = x - index_start
+a = 1
+b = d
+a = a + index
+b = b - index
+
+if d % 2 == 0:
+    print(str(a) + "/" + str(b))
+
+else:
+    print(str(b) + "/" + str(a))
+
