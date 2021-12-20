@@ -154,3 +154,5 @@ for p in range(len(words_shorten)):
 
 print(result)
 
+
+

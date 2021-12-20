@@ -2,6 +2,37 @@ import sys
 
 #-------BOJ-------
 
+#2292
+
+n = int(input())
+
+i = 0
+start = 1
+end = 1
+
+while True:
+    if end >= n >= start:
+        print(i+1)
+        break
+    else:
+        i = i+1
+        start = end + 1
+        end = end + 6 * i
+
+#1712
+
+a, b, c = map(int, input().split())
+
+q = 0
+
+if b >= c:
+    q = -1
+
+else:
+    q = a // (c-b) + 1
+
+print(q)
+
 #1316
 
 n = int(input())
