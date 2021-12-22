@@ -2,9 +2,18 @@ import sys
 
 #-------BOJ-------
 
+#10250
+
+
+
 #2869
 
+import math
 
+a, b, v = map(int, input().split())
+x = (v - b) / (a - b)
+x_ceil = math.ceil(x)
+print(x_ceil)
 
 #1193
 
