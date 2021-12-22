@@ -57,3 +57,5 @@ if d % 2 == 0:
 else:
     print(str(b) + "/" + str(a))
 
+#2869
+

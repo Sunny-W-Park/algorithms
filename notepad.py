@@ -2,6 +2,10 @@ import sys
 
 #-------BOJ-------
 
+#2869
+
+
+
 #1193
 
 x = int(input())
