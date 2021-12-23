@@ -2,6 +2,72 @@ import sys
 
 #-------BOJ-------
 
+#2839
+
+n = int(input())
+
+count = 0
+result = n
+
+while True:
+    if result == 0:
+        print(count)
+        break
+
+    elif result > 0:
+        if result % 5 == 0:
+            result = result - 5
+            count += 1
+
+        elif (result - 3) % 5 == 0:
+            result = result - 3
+            count += 1
+
+        elif (result - 5) % 3 == 0:
+            result = result - 5
+            count += 1
+
+        elif result % 3 == 0:
+            result = result - 3
+            count += 1
+
+        else:
+            result = result - 3
+            count += 1
+
+    else:
+        print(-1)
+        break
+
+#2775
+
+t = int(input())
+kn = [[0 for _ in range(2)] for _ in range(t)]
+arr = []
+
+for i in range(t):
+    for j in range(2):
+        kn[i][j] = int(input())
+
+for i in range(t):
+    arr.append([[0 for _ in range(kn[i][1])] for _ in range(kn[i][0]+1)])
+
+for p in range(len(arr)):
+    for q in range(len(arr[p][0])):
+        arr[p][0][q] = q+1
+
+count = 0
+
+for p in range(len(arr)):
+    for q in range(1, len(arr[p])):
+        for r in range(len(arr[p][0])):
+            count += arr[p][q-1][r]
+            arr[p][q][r] = count
+        count = 0
+
+for i in range(t):
+    print(arr[i][kn[i][0]][kn[i][1]-1])
+
 #10757
 
 a, b = map(int, input().split())
