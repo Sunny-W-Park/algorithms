@@ -1,5 +1,5 @@
-# CSStudies
-Daily CS Study (from Dec2020)
+# Algorithms
+Daily Algorithms (Dec2020 ~)
 
 <pre><code>
 
