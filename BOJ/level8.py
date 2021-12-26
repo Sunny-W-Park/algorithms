@@ -176,3 +176,25 @@ while True:
 a, b = map(int, input().split())
 print(a+b)
 
+#1011
+
+t = int(input())
+
+for i in range(t):
+    x, y = map(int, input().split())
+    distance = y - x
+    result = 1
+    n = round(distance ** (1/2))
+
+    if distance == 1:
+        result = result
+
+    elif n ** 2 < distance:
+        result += 2 * n - 1
+
+    elif n ** 2 >= distance:
+        result += 2 * n - 2
+
+    print(result)
+
+
