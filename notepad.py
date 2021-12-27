@@ -2,6 +2,23 @@ import sys
 
 #-------BOJ-------
 
+#11653
+
+n = int(input())
+result = n
+divide = 2
+
+while result >= divide:
+    if result == 1:
+        print()
+        break
+    else:
+        if result % divide == 0:
+            result = result // divide
+            print(divide)
+        else:
+            divide = divide + 1
+
 #2581
 
 m = int(input())
