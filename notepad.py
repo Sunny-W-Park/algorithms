@@ -2,6 +2,36 @@ import sys
 
 #-------BOJ-------
 
+#4948
+
+def isPrime(n):
+    if n == 1:
+        return False
+    else:
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+list = list(range(2, 246912))
+prime = []
+
+for i in list:
+    if isPrime(i):
+        prime.append(i)
+
+k = 1
+while k != 0:
+    k = int(input())
+    count = 0
+    if k == 0:
+        break
+    else:
+        for i in prime:
+            if k < i <= 2*k:
+                count += 1
+    print(count)
+
 #1929
 
 def isPrime(n):
