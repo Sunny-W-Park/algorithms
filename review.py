@@ -44,10 +44,10 @@ for i in range(t):
     a = 0
     b = 0
     for j in range(len(prime)):
-        if prime[j] >= n/2:
-            if n - prime[j] in prime:
+        if prime[j] >= n/2:         ##2로 나눈 중간값부터 탐색
+            if n - prime[j] in prime:       ## "in prime" 으로 다른 수 탐색
                 b = prime[j]
                 a = n - prime[j]
-                break
+                break       ##break를 통해 j가 range의 끝까지 탐색하는 것을 방지
     print(a, b)
 

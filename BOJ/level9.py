@@ -139,3 +139,41 @@ for i in range(t):
                 break
     print(a, b)
 
+#1085
+
+x, y, w, h = map(int, input().split())
+list = []
+
+list.append(x - 0)
+list.append(y - 0)
+list.append(w - x)
+list.append(h - y)
+
+print(min(list))
+
+#3009
+
+set_x = []
+set_y = []
+a = 0
+b = 0
+
+for _ in range(3):
+    x, y = map(int, input().split())
+    set_x.append(x)
+    set_y.append(y)
+
+
+for i in range(3):
+    if set_x.count(set_x[i]) == 1:
+        a = set_x[i]
+        break
+
+for i in range(3):
+    if set_y.count(set_y[i]) == 1:
+        b = set_y[i]
+        break
+
+print(a, b)
+
+
