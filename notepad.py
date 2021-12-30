@@ -4,7 +4,20 @@ import sys
 
 #4153
 
-
+while True:
+    a, b, c = map(int, input().split())
+    list = []
+    if a == 0 and b == 0 and c == 0:
+        break
+    else:
+        list.append(a)
+        list.append(b)
+        list.append(c)
+        list.sort()
+        if list[0] ** 2 + list[1] ** 2 == list[2] ** 2:
+            print("right")
+        else:
+            print("wrong")
 
 #3009
 
