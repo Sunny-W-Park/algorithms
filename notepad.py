@@ -1,6 +1,17 @@
-import sys
+import sys, math
 
 #-------BOJ-------
+
+#1002
+
+
+
+#3053
+
+R = int(input())
+
+print(R ** 2 * math.pi)
+print(R ** 2 * 2)
 
 #4153
 
