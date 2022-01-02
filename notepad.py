@@ -2,6 +2,19 @@ import sys, math
 
 #-------BOJ-------
 
+#10872
+
+n = int(input())
+
+def factorial(n):
+    if n > 0:
+        return n * factorial(n-1)
+    else:
+        return 1
+
+print(factorial(n))
+
+
 #1002 #재풀이 요망
 
 t = int(input())
