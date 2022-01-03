@@ -1,5 +1,25 @@
 #2021.12.16
 
+#11729
+
+n = int(input())
+list = []
+
+def hanoi(n, x, y):
+    global list
+    if n > 1:
+        hanoi(n - 1, x, 6 - x - y)
+
+    list.append([x, y])
+
+    if n > 1:
+        hanoi(n - 1, 6 - x - y, y)
+
+hanoi(n, 1, 3)
+print(len(list))
+for i in range(len(list)):
+    print(list[i][0], list[i][1])
+
 #1002
 
 t = int(input())
