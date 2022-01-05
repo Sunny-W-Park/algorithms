@@ -1,3 +1,20 @@
+#2022.01.05
+
+#10989
+
+n = int(input())
+
+check_list = [0 for _ in range(10000)]
+
+for i in range(n):
+    num = int(input())
+    check_list[num - 1] = check_list[num - 1] + 1
+
+for i in range(len(check_list)):
+    if check_list[i] != 0:
+        for j in range(check_list[i]):
+            print(i + 1)        #해당 index(i+1)를 횟수(j) 만큼 출력
+
 #2021.12.16
 
 #11729
