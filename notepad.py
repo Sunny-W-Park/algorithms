@@ -2,6 +2,35 @@ import sys, math
 
 #-------BOJ-------
 
+
+
+#11651
+
+N = int(input())
+
+arr = []
+
+for i in range(N):
+    a, b = map(int, input().split())
+    arr.append([b, a])
+
+for i in sorted(arr):
+    print(i[1], i[0])
+
+#11650
+
+N = int(input())
+
+arr = []
+
+for i in range(N):
+    a, b = map(int, input().split())
+    arr.append([a, b])
+
+for i in sorted(arr):
+    print(i[0], i[1])
+
+
 #1427
 
 N = str(input())

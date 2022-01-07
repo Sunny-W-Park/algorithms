@@ -1,21 +1,45 @@
 import sys
 
-#1427
 
-N = str(input())
+#2750
+
+n = int(input())
 list = []
 
-for i in range(len(N)):
-    list.append(int(N[i]))
+for i in range(n):
+    list.append(int(input()))
 
-list_sorted = sorted(list, reverse = True)
+list.sort()
 
-result = ''
+for i in range(n):
+    print(list[i])
 
-for i in range(len(list_sorted)):
-    result += str(list_sorted[i])
+#2751
 
-print(result)
+n = int(input())
+list = []
+
+for i in range(n):
+    list.append(int(input()))
+
+for i in sorted(list):
+    print(i)
+
+
+#10989
+
+n = int(input())
+
+check_list = [0 for _ in range(10001)]
+
+for i in range(n):
+    num = int(sys.stdin.readline())
+    check_list[num] = check_list[num] + 1
+
+for i in range(10001):
+    if check_list[i] != 0:
+        for j in range(check_list[i]):
+            print(i)        #해당 index(i)를 횟수(j) 만큼 출력
 
 #2108
 
@@ -51,43 +75,49 @@ else:
 #범위
 print(list_sorted[n-1] - list_sorted[0])
 
+#1427
 
-#10989
-
-n = int(input())
-
-check_list = [0 for _ in range(10001)]
-
-for i in range(n):
-    num = int(sys.stdin.readline())
-    check_list[num] = check_list[num] + 1
-
-for i in range(10001):
-    if check_list[i] != 0:
-        for j in range(check_list[i]):
-            print(i)        #해당 index(i)를 횟수(j) 만큼 출력
-
-#2750
-
-n = int(input())
+N = str(input())
 list = []
 
-for i in range(n):
-    list.append(int(input()))
+for i in range(len(N)):
+    list.append(int(N[i]))
 
-list.sort()
+list_sorted = sorted(list, reverse = True)
 
-for i in range(n):
-    print(list[i])
+result = ''
 
-#2751
+for i in range(len(list_sorted)):
+    result += str(list_sorted[i])
 
-n = int(input())
-list = []
+print(result)
 
-for i in range(n):
-    list.append(int(input()))
+#11650
 
-for i in sorted(list):
-    print(i)
+N = int(input())
+
+arr = []
+
+for i in range(N):
+    a, b = map(int, input().split())
+    arr.append([a, b])
+
+for i in sorted(arr):
+    print(i[0], i[1])
+
+#11651
+
+N = int(input())
+
+arr = []
+
+for i in range(N):
+    a, b = map(int, input().split())
+    arr.append([b, a])
+
+for i in sorted(arr):
+    print(i[1], i[0])
+
+
+
 
