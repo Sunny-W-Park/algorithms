@@ -2,6 +2,24 @@ import sys, math
 
 #-------BOJ--------
 
+#7568
+
+input = sys.stdin.readline
+N = int(input())
+profile = []
+rank = [1 for _ in range(N)]
+for i in range(N):
+    profile.append(list(map(int, input().split())))
+
+
+for i in range(N):
+    for j in range(N):
+        if profile[i][0] < profile[j][0] and profile[i][1] < profile[j][1]:
+            rank[i] = rank[i] + 1
+
+for i in rank:
+    print(i, end = ' ')
+
 #2231
 
 input = sys.stdin.readline
