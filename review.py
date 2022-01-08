@@ -1,3 +1,35 @@
+#2022.01.07
+
+#18870
+
+#dict 개념 참고
+
+input = sys.stdin.readline
+n = int(input())
+arr = list(map(int, input().split()))
+arr_set_sorted = sorted(set(arr))
+
+dic = {arr_set_sorted[i] : i for i in range(len(arr_set_sorted))}
+
+for i in range(len(arr)):
+    print(dic[arr[i]], end = ' ')
+
+#내 풀이
+
+N = int(input())
+arr = list(map(int, sys.stdin.readline().split()))
+arr_set = set()
+
+for i in range(N):
+    arr_set.add(arr[i])
+
+for i in range(N):
+    for j in range(len(arr_set)):
+        if arr[i] == sorted(arr_set)[j]:
+            arr[i] = j
+    print(arr[i], end = ' ')
+
+
 #2022.01.05
 
 #10989
@@ -14,6 +46,7 @@ for i in range(len(check_list)):
     if check_list[i] != 0:
         for j in range(check_list[i]):
             print(i + 1)        #해당 index(i+1)를 횟수(j) 만큼 출력
+
 
 #2021.12.16
 
@@ -57,6 +90,7 @@ for i in range(t):
     else:
         print(0)
 
+
 #4673
 
 natural_num = set(range(1, 10001))
@@ -74,6 +108,7 @@ result_num = sorted(natural_num - generated_num)
 
 for k in result_num:
     print(k)
+
 
 #2021.12.28 
 
