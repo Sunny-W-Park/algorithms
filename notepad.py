@@ -2,6 +2,56 @@ import sys, math
 
 #-------BOJ--------
 
+#1018 "재풀이 요망"
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+arr_str = []
+arr_int = [[0 for _ in range(M)] for _ in range(N)]
+arr_chess = [[0 for _ in range(8)] for _ in range(8)]
+for i in range(N):
+    arr_str.append(str(input().rstrip()))
+
+for i in range(N):
+    for j in range(M):
+        if arr_str[i][j] == 'B':
+            arr_int[i][j] = 1
+        else:
+            arr_int[i][j] = 0
+
+row_limit = M - 8
+col_limit = N - 8
+arr_count = []
+count = 0
+
+for p in range(col_limit+1):
+    for q in range(row_limit+1):
+        for i in range(8):
+            for j in range(8):
+                arr_chess[i][j] = arr_int[i+p][j+q]
+                if i == 0 and j != 0:
+                    if arr_chess[i][j] == arr_chess[i][j-1]:
+                        count += 1
+                        if arr_chess[i][j] == 0: arr_chess[i][j] = 1
+                        else: arr_chess[i][j] = 0
+
+                if i != 0 and j == 0:
+                    if arr_chess[i][j] == arr_chess[i-1][j]:
+                        count += 1
+                        if arr_chess[i][j] == 0: arr_chess[i][j] = 1
+                        else: arr_chess[i][j] = 0
+
+                if 1 <= i <= 7 and 1 <= j <= 7:
+                    if arr_chess[i][j] == arr_chess[i][j-1] or arr_chess[i][j] == arr_chess[i-1][j]:
+                        count += 1
+                        if arr_chess[i][j] == 0: arr_chess[i][j] = 1
+                        else: arr_chess[i][j] = 0
+        arr_count.append(count)
+
+print(arr_count)
+print(min(arr_count))
+
+
 #7568
 
 input = sys.stdin.readline
