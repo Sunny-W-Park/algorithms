@@ -39,3 +39,31 @@ for i in range(a):
 
 print(sorted(result)[-1])
 
+#1018 "재풀이(1)"
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+arr = [list(input().rstrip()) for _ in range(N)]
+
+count = []
+
+for i in range(N - 7):
+    for j in range(M - 7):
+        count_w, count_b = 0, 0
+        for p in range(i, i + 8):
+            for q in range(j, j + 8):
+                if (p + q) % 2 == 0:
+                    if arr[p][q] != 'W':
+                        count_w += 1
+                    if arr[p][q] != 'B':
+                        count_b += 1
+                elif (p + q) % 2 == 1:
+                    if arr[p][q] != 'B':
+                        count_w += 1
+                    if arr[p][q] != 'W':
+                        count_b += 1
+        count.append(count_w)
+        count.append(count_b)
+
+print(min(count))
+
