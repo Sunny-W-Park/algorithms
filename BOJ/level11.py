@@ -67,3 +67,29 @@ for i in range(N - 7):
 
 print(min(count))
 
+#1436
+
+N = int(input())
+
+start = 0
+movies = []
+
+def series(x):
+    global movies
+    count = 0
+    for i in range(len(str(x))):
+        if str(x)[i] == '6':
+            count += 1
+        if count == 3:
+            movies.append(x)
+            break
+        elif str(x)[i] != '6':
+            count = 0
+
+while len(movies) != N:
+    start += 1
+    series(start)
+
+print(movies[-1])
+
+

@@ -1,3 +1,28 @@
+#2022.01.10
+
+#백트래킹(DFS)
+
+#15650
+
+sys.setrecursionlimit(10000)
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+s = []
+
+def dfs():
+    if len(s) == M:
+        print(' '.join(map(str, s)))
+        return
+    for i in range(1, N + 1):
+        if i in s:
+            continue
+        s.append(i)
+        dfs()
+        s.pop()
+
+dfs()
+
 #2022.01.09
 
 #1018 "재풀이(1)"
