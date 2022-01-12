@@ -2,6 +2,93 @@ import sys, math
 
 #-------BOJ--------
 
+#1541 '재풀이 요망'
+
+s = str(input())
+numbers = []
+operators = []
+put = ''
+
+for i in range(len(s)):
+    if s[i] == '+' or s[i] == '-':
+        operators.append(s[i])
+        numbers.append(put)
+        put = s[i]
+    else:
+        put += s[i]
+    if i == len(s) - 1:
+        numbers.append(put)
+
+index_minus = []
+
+for i in range(len(numbers)):
+    numbers[i] = int(numbers[i])
+    if numbers[i] < 0:
+        index_minus.append(i)
+
+results = []
+
+if len(index_minus) == 0:
+    results.append(sum(numbers))
+else:
+    for i in range(len(index_minus)):
+        converted = []
+        for j in range(len(numbers)):
+            converted.append(numbers[j])
+        for k in range(len(index_minus)):
+            if len(index_minus) == 1:
+                for p in range(index_minus[k]+1, len(converted)):
+                    converted[p]= -1 * converted[p]
+            if len(index_minus) > 1:
+                if k < len(index_minus) - 1:
+                    for q in range(index_minus[k]+1, index_minus[k+1]):
+                        converted[q] = -1 * converted[q]
+        results.append(sum(converted))
+
+print(min(results))
+
+
+#11399
+
+input = sys.stdin.readline
+N = int(input())
+P = list(map(int, input().split()))
+P = sorted(P)
+
+print(P)
+
+Total = 0
+
+for i in range(N):
+    count = 0
+    for j in range(i+1):
+        count += P[j]
+    Total += count
+
+print(Total)
+
+#11047
+
+input = sys.stdin.readline
+N, K = map(int, input().split())
+coins = []
+for i in range(N):
+    coins.append(int(input()))
+
+count = 0
+start_index = N - 1
+
+while True:
+    if K == 0:
+        print(count)
+        break
+    else:
+        if K - coins[start_index] >= 0:
+            K = K - coins[start_index]
+            count += 1
+        else:
+            start_index = start_index - 1
+
 #15652
 
 sys.setrecursionlimit(10000)
