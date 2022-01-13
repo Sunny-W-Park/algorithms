@@ -2,7 +2,88 @@ import sys, math
 
 #-------BOJ--------
 
-#1541 '재풀이 요망'
+#1931
+
+input = sys.stdin.readline
+
+N = int(input())
+arr = []
+results = []
+for i in range(N):
+    a, b = map(int, input().split())
+    arr.append([a, b])
+
+for k in range(N):
+    timetable = [0 for _ in range(100000)]
+    count = 0
+    for i in range(k, N):
+        TF = 0
+        for j in range(arr[i][0], arr[i][1]):
+            if timetable[j] == 0:
+                TF += 1
+            if TF == arr[i][1] - arr[i][0]:
+                count += 1
+                for k in range(arr[i][0], arr[i][1]):
+                    timetable[k] = 1
+    results.append(count)
+    count = 0
+
+print(max(results))
+
+#13305
+
+input = sys.stdin.readline
+
+N = int(input())
+distance = list(map(int, input().split()))
+oilprice = list(map(int, input().split()))
+
+result = 0
+charger = oilprice[0]
+
+for i in range(len(oilprice)-1):
+    if charger <= oilprice[i]:
+        result += charger * distance[i]
+    else:
+        charger = oilprice[i]
+        result += charger * distance[i]
+
+print(result)
+
+#1541 '괄호 수 제한 없는 경우'
+
+s = str(input())
+numbers = []
+operators = []
+put = ''
+
+for i in range(len(s)):
+    if s[i] == '+' or s[i] == '-':
+        operators.append(s[i])
+        numbers.append(put)
+        put = s[i]
+    else:
+        put += s[i]
+    if i == len(s)-1:
+        numbers.append(put)
+
+converter = 1
+
+for i in range(len(numbers)):
+    if int(numbers[i]) < 0:
+        converter = -1
+    if converter == 1:
+        numbers[i] = int(numbers[i])
+    if converter == -1:
+        if int(numbers[i]) > 0:
+            numbers[i] = -1 * int(numbers[i])
+        else:
+            numbers[i] = int(numbers[i])
+
+print(sum(numbers))
+
+
+#1541 '괄호 한번만 칠 수 있을 경우'
 
 s = str(input())
 numbers = []
@@ -30,21 +111,26 @@ results = []
 
 if len(index_minus) == 0:
     results.append(sum(numbers))
+
 else:
     for i in range(len(index_minus)):
-        converted = []
-        for j in range(len(numbers)):
-            converted.append(numbers[j])
-        for k in range(len(index_minus)):
-            if len(index_minus) == 1:
-                for p in range(index_minus[k]+1, len(converted)):
+        converted = [i for i in numbers]
+        #for j in range(len(numbers)):
+        #    converted.append(numbers[j])
+        if len(index_minus) == 1:
+            for p in range(index_minus[i]+1, len(converted)):
+                if converted[p] > 0:
                     converted[p]= -1 * converted[p]
-            if len(index_minus) > 1:
-                if k < len(index_minus) - 1:
-                    for q in range(index_minus[k]+1, index_minus[k+1]):
+        if len(index_minus) > 1:
+            if i < len(index_minus) - 1:
+                for q in range(index_minus[i]+1, index_minus[i+1]):
+                    if converted[q] > 0:
                         converted[q] = -1 * converted[q]
+        print(converted)
+        print(sum(converted))
         results.append(sum(converted))
 
+print(results)
 print(min(results))
 
 
