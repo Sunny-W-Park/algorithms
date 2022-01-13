@@ -92,3 +92,26 @@ for i in range(len(oilprice)-1):
 
 print(result)
 
+#1931 2차 풀이
+
+input = sys.stdin.readline
+N = int(input())
+arr = []
+
+for i in range(N):
+    a, b = map(int, input().split())
+    arr.append([a, b])
+
+arr.sort(key = lambda x: x[0])
+arr.sort(key = lambda x: x[1])
+
+count = 1
+end_time = arr[0][1]
+
+for i in range(1, N):
+    if arr[i][0] >= end_time:
+        count += 1
+        end_time = arr[i][1]
+
+print(count)
+
