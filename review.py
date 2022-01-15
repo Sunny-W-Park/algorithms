@@ -1,3 +1,23 @@
+
+
+#1934 재풀이
+
+input = sys.stdin.readline
+N = int(input())
+
+def lcd(A, B):
+    if B == 0:
+        return A
+    else:
+        return lcd(B, A % B)
+
+def gcm(A, B):
+    return (A * B) // lcd(A, B)
+
+for _ in range(N):
+    A, B = map(int, input().split())
+    print(gcm(A, B))
+
 #2022.01.10
 
 #백트래킹(DFS)

@@ -1,5 +1,65 @@
 import sys, math
 
+#-------BOJ--------
+
+#1934 재풀이
+
+input = sys.stdin.readline
+N = int(input())
+
+def lcd(A, B):
+    if B == 0:
+        return A
+    else:
+        return lcd(B, A % B)
+
+def gcm(A, B):
+    return (A * B) // lcd(A, B)
+
+for _ in range(N):
+    A, B = map(int, input().split())
+    print(gcm(A, B))
+
+
+#1934
+
+input = sys.stdin.readline
+N = int(input())
+for i in range(N):
+    CM = []
+    C = 0
+    A, B = map(int, input().split())
+    while len(CM) == 0:
+        C += 1
+        if (min(A, B) * C) % max(A, B) == 0:
+            CM.append(min(A, B) * C)
+    print(CM[0])
+
+#2609
+
+input = sys.stdin.readline
+A, B = map(int, input().split())
+CD = []
+CM = []
+C = 0
+D = 0
+
+while D <= min(A, B):
+    D += 1 
+    if A % D == 0 and B % D == 0:
+        CD.append(D)
+
+while len(CM) == 0:
+    C += 1
+    if (min(A, B) * C) % max(A, B) == 0:
+        CM.append(min(A, B) * C)
+
+print(max(CD))
+print(min(CM))
+
+
+
+
 #-------나동빈------
 
 #예제 3-4. 1이 될 때까지
