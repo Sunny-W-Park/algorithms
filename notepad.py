@@ -2,6 +2,56 @@ import sys, math
 
 #-------BOJ--------
 
+#1010
+
+input = sys.stdin.readline
+T = int(input())
+
+def factorial(n):
+    if n > 0:
+        return n * factorial(n-1)
+    else:
+        return 1
+
+def binominal_coefficient(n, k):
+    return factorial(n) // (factorial(n - k) * factorial(k))
+
+for _ in range(T):
+    N, M = map(int, input().split())
+    print(binominal_coefficient(M, N))
+
+#11051 동적 계획법으로 재풀이
+
+input = sys.stdin.readline
+N, K = map(int, input().split())
+
+def factorial(n):
+    if n > 0:
+        return n * factorial(n-1)
+    else:
+        return 1
+
+def binominal_coefficient(n, k):
+    return factorial(n) // (factorial(n - k) * factorial(k))
+
+print(binominal_coefficient(N, K) % 10007)
+
+#11050
+
+input = sys.stdin.readline
+N, K = map(int, input().split())
+
+def factorial(n):
+    if n > 0:
+        return n * factorial(n-1)
+    else:
+        return 1
+
+def binominal_coefficient(n, k):
+    return factorial(n) // (factorial(n - k) * factorial(k))
+
+print(binominal_coefficient(N, K))
+
 #3036
 
 input = sys.stdin.readline
