@@ -2,6 +2,25 @@ import sys, math
 
 #-------BOJ--------
 
+#3036
+
+input = sys.stdin.readline
+N = int(input())
+arr = list(map(int, input().split()))
+
+div = arr[0]
+
+def lcd(A, B):
+    if B == 0:
+        return A
+    else:
+        return lcd(B, A % B)
+
+for i in range(1, N):
+    A = div // lcd(div, arr[i])
+    B = arr[i] // lcd(div, arr[i])
+    print(str(A) + "/" + str(B))
+
 #1934 재풀이
 
 input = sys.stdin.readline
