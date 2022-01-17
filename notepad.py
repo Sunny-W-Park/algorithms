@@ -2,6 +2,22 @@ import sys, math
 
 #-------BOJ--------
 
+#11051 동적 계획법으로 재풀이
+
+input = sys.stdin.readline
+N, K = map(int, input().split())
+arr = [[0 for _ in range(K + 1)] for _ in range(N + 1)]
+
+for i in range(N+1):
+    arr[i][0] = 1
+for i in range(K+1):
+    arr[i][i] = 1
+for i in range(1, N+1):
+    for j in range(1, K+1):
+        arr[i][j] = arr[i-1][j-1] + arr[i-1][j]
+
+print(arr[N][K] % 10007)
+
 #1010
 
 input = sys.stdin.readline
@@ -20,21 +36,6 @@ for _ in range(T):
     N, M = map(int, input().split())
     print(binominal_coefficient(M, N))
 
-#11051 동적 계획법으로 재풀이
-
-input = sys.stdin.readline
-N, K = map(int, input().split())
-
-def factorial(n):
-    if n > 0:
-        return n * factorial(n-1)
-    else:
-        return 1
-
-def binominal_coefficient(n, k):
-    return factorial(n) // (factorial(n - k) * factorial(k))
-
-print(binominal_coefficient(N, K) % 10007)
 
 #11050
 

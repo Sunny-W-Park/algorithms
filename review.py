@@ -1,5 +1,4 @@
 
-
 #1934 재풀이
 
 input = sys.stdin.readline
