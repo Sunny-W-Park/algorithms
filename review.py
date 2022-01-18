@@ -1,3 +1,33 @@
+#2022.01.18
+
+#9375
+
+input = sys.stdin.readline
+T = int(input())
+
+for _ in range(T):
+    n = int(input())
+
+    #n이 0인 경우 건너뛰기
+    if n == 0:
+        print(0)
+        continue
+
+    items = dict()
+    for _ in range(n):
+        a, b = map(str, input().split())
+        if b in items.keys():
+            items[b] += 1
+        #dictionary 데이터 추가 방법
+        else:
+            items[b] = 1
+
+        answer = 1
+        for key in items.keys():
+            answer *= (items[key] + 1)
+
+    #안입는 경우 제외
+    print(answer - 1)
 
 #1934 재풀이
 
