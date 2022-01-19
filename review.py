@@ -1,3 +1,21 @@
+#2022.01.19
+
+#2004 재풀이
+
+input = sys.stdin.readline
+n, m = map(int, input().split())
+
+def count(n, k):
+    count = 0
+    while n > 1:
+        n = n // k
+        count += n
+    return count
+
+count_five = count(n, 5) - (count(n - m, 5) + count(m, 5))
+count_two = count(n, 2) - (count(n - m, 2) + count(m, 2))
+print(min(count_two, count_five))
+
 #2022.01.18
 
 #9375

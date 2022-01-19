@@ -1,3 +1,41 @@
+#2004 재풀이
+
+input = sys.stdin.readline
+n, m = map(int, input().split())
+
+def count(n, k):
+    count = 0
+    while n > 1:
+        n = n // k
+        count += n
+    return count
+
+count_five = count(n, 5) - (count(n - m, 5) + count(m, 5))
+count_two = count(n, 2) - (count(n - m, 2) + count(m, 2))
+print(min(count_two, count_five))
+
+#1676
+
+sys.setrecursionlimit(10**4)
+
+input = sys.stdin.readline
+N = int(input())
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+result = factorial(N)
+count = 0
+for i in range(len(str(result))-1, -1, -1):
+    if str(result)[i] != '0':
+        print(count)
+        break
+    elif str(result)[i] == '0':
+        count += 1
+
 #5086
 
 a, b = 1, 1

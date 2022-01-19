@@ -2,6 +2,126 @@ import sys, math
 
 #-------BOJ--------
 
+#2981 재풀이
+
+#[TBU]
+
+#2981
+
+input = sys.stdin.readline
+N = int(input())
+numbers = []
+for _ in range(N):
+    numbers.append(int(input()))
+
+m = max(numbers)
+div = []
+
+for i in range(m-1):
+    count = 0
+    s = m - i
+    for j in numbers:
+        if (j - i) % s != 0:
+            count += 1
+            break
+    if count == 0:
+        div.append(s)
+
+for i in range(len(div)-1, -1, -1):
+    print(div[i], end = ' ')
+
+#2004 재풀이
+
+input = sys.stdin.readline
+n, m = map(int, input().split())
+
+def count(n, k):
+    count = 0
+    while n > 1:
+        n = n // k
+        count += n
+    return count
+
+count_five = count(n, 5) - (count(n - m, 5) + count(m, 5))
+count_two = count(n, 2) - (count(n - m, 2) + count(m, 2))
+print(min(count_two, count_five))
+
+
+#2004 메모리 초과
+
+input = sys.stdin.readline
+n, m = map(int, input().split())
+
+def binominal_coefficient(N, K):
+    dp = [[0 for _ in range(K + 1)] for _ in range(N+1)]
+
+    for i in range(N + 1):
+        dp[i][0] = 1
+    for i in range(K + 1):
+        dp[i][i] = 1
+    for i in range(1, N + 1):
+        for j in range(1, K + 1):
+            dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1]
+
+    return dp[N][K]
+
+result = binominal_coefficient(n, m)
+count = 0
+
+for i in range(len(str(result))-1, -1, -1):
+    if str(result)[i] != '0':
+        print(count)
+        break
+    elif str(result)[i] == '0':
+        count += 1
+
+#2004 재귀한도초과
+
+input = sys.stdin.readline
+n, m = map(int, input().split())
+
+def factorial(x):
+    if x == 0:
+        return 1
+    else:
+        return x * factorial(x-1)
+
+def binominal_coeff(n, m):
+    return factorial(n) // (factorial(n-m) * factorial(m))
+
+
+result = binominal_coeff(n, m)
+count = 0
+
+for i in range(len(str(result))-1, -1, -1):
+    if str(result)[i] != '0':
+        print(count)
+        break
+    elif str(result)[i] == '0':
+        count += 1
+
+#1676
+
+sys.setrecursionlimit(10**4)
+
+input = sys.stdin.readline
+N = int(input())
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+result = factorial(N)
+count = 0
+for i in range(len(str(result))-1, -1, -1):
+    if str(result)[i] != '0':
+        print(count)
+        break
+    elif str(result)[i] == '0':
+        count += 1
+
 #9375
 
 input = sys.stdin.readline
