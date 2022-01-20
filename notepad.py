@@ -24,13 +24,6 @@ def turn_left():
     else:
         d -= 1
 
-def turn_right():
-    global d
-    if d == 3:
-        d -= 3
-    else:
-        d += 1
-
 while turn_count <= 4:
     turn_left()
     turn_count += 1
