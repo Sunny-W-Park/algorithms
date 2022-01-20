@@ -14,24 +14,48 @@ for _ in range(N):
 arr[x][y] = 1
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
-count = 0
+move_count = 1
+turn_count = 0
 
-def turn(d):
+def turn_left():
+    global d
     if d == 0:
         d += 3
     else:
         d -= 1
 
-def move():
-    nx = x + dx[turn(d)]
-    ny = y + dy[turn(d)]
+def turn_right():
+    global d
+    if d == 3:
+        d -= 3
+    else:
+        d += 1
+
+while turn_count <= 4:
+    turn_left()
+    turn_count += 1
+    nx = x + dx[d]
+    ny = y + dy[d]
 
     if arr[nx][ny] == 0:
-        arr[nx][ny] = 1
-        count += 1
+        x = x + dx[d]
+        y = y + dy[d]
+        arr[x][y] = 2
+        move_count += 1
+        turn_count = 0
 
-    else:
-        turn(d)
+    if turn_count == 4:
+       bx = x - dx[d]
+       by = y - dy[d]
+
+       if arr[bx][by] != 1:
+           turn_count = 0
+           x = x - dx[d]
+           y = y + dy[d]
+
+       elif arr[bx][by] == 1:
+           print(move_count)
+           break
 
 
 #실전 4-2. 왕실의 나이트
