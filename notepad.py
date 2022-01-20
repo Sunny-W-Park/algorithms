@@ -1,5 +1,100 @@
 import sys, math
 
+#-------나동빈------
+
+#실전 4-3. 게임 개발
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+x, y, d = map(int, input().split())
+arr = []
+for _ in range(N):
+    arr.append(list(map(int, input().split())))
+
+arr[x][y] = 1
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+count = 0
+
+def turn(d):
+    if d == 0:
+        d += 3
+    else:
+        d -= 1
+
+def move():
+    nx = x + dx[turn(d)]
+    ny = y + dy[turn(d)]
+
+    if arr[nx][ny] == 0:
+        arr[nx][ny] = 1
+        count += 1
+
+    else:
+        turn(d)
+
+
+#실전 4-2. 왕실의 나이트
+
+pos = str(input())
+x = int(ord(pos[0])) - 96
+y = int(pos[1])
+
+dx = [-1, 1, -1, 1, -2, -2, 2, 2]
+dy = [-2, -2, 2, 2, -1, 1, -1, 1]
+count = 0
+
+for i in range(8):
+    nx = x + dx[i]
+    ny = y + dy[i]
+    if 1 <= nx <= 8 and 1 <= ny <= 8:
+        count += 1
+
+print(count)
+
+#예제 4-2. 시각
+
+N = int(input())
+
+h = 0
+m = 0
+s = 0
+
+count = 0
+
+while h < N+1:
+    s += 1
+    if s == 60:
+        m += 1
+        s = 0
+    if m == 60:
+        h += 1
+        m = 0
+    if '3' in str(h) + str(m) + str(s):
+        count += 1
+
+print(count)
+
+#예제 4-1. 상하좌우
+
+input = sys.stdin.readline
+N = int(input())
+moves = list(map(str, input().split()))
+
+x, y = 1, 1
+
+for i in range(len(moves)):
+    if moves[i] == 'L' and y > 1:
+        y -= 1
+    elif moves[i] == 'R' and y < N:
+        y += 1
+    elif moves[i] == 'U' and x > 1:
+        x -= 1
+    elif moves[i] == 'D' and x < N:
+        x += 1
+
+print(x, y)
+
 #-------BOJ--------
 
 #2981 재풀이
