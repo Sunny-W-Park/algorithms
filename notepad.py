@@ -2,6 +2,82 @@ import sys, math
 
 #-------나동빈------
 
+#실전 5-4. 미로 탈출
+
+from collections import deque
+
+N, M = map(int, input().split())
+graph = []
+for i in range(N):
+    graph.append(list(map(int, input())))
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+def bfs(x, y):
+    queue = deque()
+    queue.append(x, y)
+    while queue:
+        x, y = queue.popleft(x, y)
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if nx < 0 or nx >= N or ny < 0 or ny >= M:
+                continue
+            if graph[nx][ny] == 1:
+                graph[nx][ny] = graph[x][y] + 1
+                queue.append((nx, ny))
+    return graph[N-1][M-1]
+
+print(bfs(0, 0))
+
+#실전 5-3. 음료수 얼려 먹기
+
+N, M = map(int, input().split())
+
+graph = []
+for i in range(N):
+    graph.append(list(map(int, input())))
+
+def dfs(x, y):
+    if x < 0 or x >= N or y < 0 or y >= M:
+        return False
+    if graph[x][y] == 0:
+        graph[x][y] = 1
+        dfs(x-1, y)
+        dfs(x+1, y)
+        dfs(x, y-1)
+        dfs(x, y+1)
+        return True
+    return False
+
+result = 0
+for i in range(N):
+    for j in range(M):
+        if dfs(i, j) == True:
+            result += 1
+
+print(result)
+
+
+def bfs(graph, start, visited):
+    queue = deque([start])
+    visited[start] = True
+    while queue:
+        v = queue.popleft()
+        print(v, end = ' ')
+        for i in graph[v]:
+            if visited[i] == False:
+                queue.append(i)
+                visited[i] = True
+
+def dfs(graph, v, visited):
+    visited[v] = True
+    print(v, end = ' ')
+    for i in graph[v]:
+        if visited[i] == False:
+            dfs(graph, i, visited)
+
 #실전 4-3. 게임 개발
 
 input = sys.stdin.readline
