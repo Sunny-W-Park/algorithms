@@ -1,5 +1,135 @@
 import sys, math
 
+#------ BOJ ------
+
+#2702
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a%b)
+
+def lcm(a, b):
+    return a * b // gcd(a, b)
+
+T = int(input())
+for _ in range(T):
+    a, b = map(int, input().split())
+    X = lcm(a, b)
+    Y = gcd(a, b)
+    print(X, Y)
+
+
+#14502 풀이과정 참고
+
+
+import sys, copy, collections
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+max_num = 0
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+empty_list = []
+virus_list = []
+
+EMPTY = 0
+WALL = 1
+VIRUS = 2
+
+graph = [[0 for _ in range(M)] for _ in range(N)]
+
+for y in range(N):
+    raw = [int(x) for x in input().split()]
+
+    for x in range(M):
+        graph[y][x] = raw[x]
+        if graph[y][x] == EMPTY:
+            empty_list.append([y, x])
+        if graph[y][x] == VIRUS:
+            virus_list.append([y, x])
+
+def bfs(graph_new):
+    q = collections.deque([])
+    visited = [[False for _ in range(M)] for _ in range(N)]
+    count = 0
+    global max_num
+
+    for virus in virus_list:
+        q.append(virus)
+
+
+
+
+
+
+#18352 재풀이 
+
+from collections import deque
+
+input = sys.stdin.readline
+N, M, K, X = map(int, input().split())
+graph = [[] for _ in range(N+1)]
+distance = [-1 for _ in range(N+1)]
+distance[X] = 0
+
+for _ in range(M):
+    a, b = list(map(int, input().split()))
+    graph[a].append(b)
+
+def bfs(graph, X):
+    queue = deque([X])
+    while queue:
+        now = queue.popleft()
+        for nxt in graph[now]:
+            if distance[nxt] == -1:
+                distance[nxt] = distance[now] + 1
+                queue.append(nxt)
+
+bfs(graph, X)
+
+if K in distance:
+    for i in range(1, len(distance)):
+        if distance[i] == K:
+            print(i)
+else:
+    print(-1)
+
+
+#18352 "시간초과"
+
+from collections import deque
+
+input = sys.stdin.readline
+N, M, K, X = map(int, input().split())
+graph = []
+distance = [0 for _ in range(N+1)]
+for _ in range(M):
+    graph.append(list(map(int, input().split())))
+
+def bfs(graph, X):
+    queue = deque([X])
+    while queue:
+        A = queue.popleft()
+        for i in range(1, N+1):
+            for j in range(M):
+                if graph[j][0] == A:
+                    queue.append(graph[j][1])
+                    if graph[j][1] == i and distance[i] == 0:
+                        distance[i] = distance[A] + 1
+
+bfs(graph, X)
+
+if K in distance:
+    for i in range(1, len(distance)):
+        if distance[i] == K:
+            print(i)
+else:
+    print(-1)
+
+
 #-------나동빈------
 
 #실전 5-4. 미로 탈출
