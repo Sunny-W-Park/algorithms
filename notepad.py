@@ -2,6 +2,17 @@ import sys, math
 
 #------ BOJ ------
 
+#14502 풀이과정 참고
+
+import sys
+import copy
+from collections import deque
+
+input = sys.stdin.readline
+
+
+
+
 #2702
 
 def gcd(a, b):
