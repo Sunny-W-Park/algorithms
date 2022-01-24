@@ -1,6 +1,158 @@
-import sys, math
 
-#------ BOJ ------
+#------ BOJ -----
+
+#14502
+
+import sys
+import copy
+from collections import deque
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+g = []
+v = []
+
+for i in range(N):
+    g.append(list(map(int, input().split())))
+    for j in range(M):
+        if g[i][j] == 2:
+            v.append([i, j])
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+ans = 0
+
+def bfs():
+    global ans
+    c = copy.deepcopy(g)
+    q = deque(v)
+
+    while q:
+        x, y = q.popleft()
+        for r in range(4):
+            nx = x + dx[r]
+            ny = y + dy[r]
+            if 0 <= nx < N and 0 <= ny < M:
+                if c[nx][ny] == 0:
+                    c[nx][ny] = 2
+                    q.append([nx, ny])
+
+    count = 0
+    for i in c:
+        count += i.count(0)
+    ans = max(ans, count)
+
+def wall(x):
+    if x == 3:
+        bfs()
+        return
+    for i in range(N):
+        for j in range(M):
+            if g[i][j] == 0:
+                g[i][j] = 1
+                wall(x+1)
+                g[i][j] = 0
+
+wall(0)
+print(ans)
+
+#18405
+
+import sys
+from collections import deque
+
+input = sys.stdin.readline
+N, K = map(int, input().split())
+g = []
+v = []
+for i in range(N):
+    g.append(list(map(int, input().split())))
+    for j in range(N):
+        if g[i][j] != 0:
+            v.append([g[i][j], i, j])
+S, X, Y = map(int, input().split())
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+def bfs(X, Y, S):
+    t = 0
+    q = deque(v)
+
+    while q:
+        if t == S:
+            break
+        for _ in range(len(q)):
+            virus = q.popleft()
+            for k in range(4):
+                nx = virus[1] + dx[k]
+                ny = virus[2] + dy[k]
+                if 0 <= nx < N and 0 <= ny < N:
+                    if g[nx][ny] == 0:
+                        g[nx][ny] = virus[0]
+                        q.append([virus[0], nx, ny])
+        t += 1
+    return g[X-1][Y-1]
+
+v.sort()
+print(bfs(X, Y, S))
+
+
+#연습문제
+
+#N = 5
+#arr = [-7, -3, -2, 5, 8]
+#cal = []
+#
+#def combination():
+#    print(cal)
+#    for i in range(0, N):
+#        if arr[i] in cal:
+#            continue
+#        cal.append(arr[i])
+#        combination()
+#        cal.pop()
+#
+#combination()
+
+import sys
+from collections import deque
+
+input = sys.stdin.readline
+N, K = map(int, input().split())
+graph = []
+virus = []
+for i in range(N):
+    graph.append(list(map(int, input().split())))
+    for j in range(N):
+        if graph[i][j] != 0:
+            virus.append(((graph[i][j], i, j)))
+S, X, Y = map(int, input().split())
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+def bfs(s, X, Y):
+    q = deque(virus)
+    count = 0
+    while q:
+        if count == s:
+            break
+        for _ in range(len(q)):
+            prev, x, y = q.popleft()
+            for i in range(4):
+                nx = x + dx[i]
+                ny = y + dy[i]
+                if 0 <= nx < N and 0 <= ny < N:
+                    if graph[nx][ny] == 0:
+                        graph[nx][ny] = graph[x][y]
+                        q.append((graph[nx][ny], nx, ny))
+        count += 1
+    return graph[X-1][Y-1]
+
+virus.sort()
+print(bfs(S, X, Y))
+
 
 #14502 풀이과정 참고
 
@@ -9,9 +161,6 @@ import copy
 from collections import deque
 
 input = sys.stdin.readline
-
-
-
 
 #2702
 
@@ -70,10 +219,6 @@ def bfs(graph_new):
 
     for virus in virus_list:
         q.append(virus)
-
-
-
-
 
 
 #18352 재풀이 
