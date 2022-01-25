@@ -1,6 +1,46 @@
 
 #------ BOJ -----
 
+N, M = map(int, input().split())
+
+count = 0
+result = [0 for _ in range(N+1)]
+
+def dfs(length, idx):
+    global count
+    if length == M:
+        for i in range(M):
+            print(result[i], end = ' ')
+        print()
+        count += 1
+    else:
+        for i in range(idx, N+1):
+            result[length] = i
+            dfs(length+1, i+1)
+
+dfs(0, 1)
+
+#1182
+
+import sys
+from itertools import combinations
+
+input = sys.stdin.readline
+N, S = map(int, input().split())
+arr = list(map(int, input().split()))
+
+result = []
+
+count = 0
+
+for i in range(1, N+1):
+    comb = combinations(arr, i)
+    for j in list(comb):
+        if sum(j) == S:
+            count += 1
+
+print(count)
+
 #14502
 
 import sys
