@@ -1,3 +1,41 @@
+#------ 나동빈 -----
+
+#실전 6-4. 두 배열의 원소 교체
+
+N, K = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+A = sorted(A)
+B = sorted(B, reverse = True)
+
+for i in range(N):
+    if i <= K-1:
+        if A[i] < B[i]:
+            A[i] = B[i]
+    else:
+        continue
+
+print(sum(A))
+
+#실전 6-3. 성적이 낮은 순서로 학생 출력하기
+
+N = int(input())
+arr = []
+for _ in range(N):
+    a, b = map(str, input().split())
+    arr.append([int(b), a])
+for i in sorted(arr):
+    print(i[1], end = ' ')
+
+#실전 6-2. 위에서 아래로
+
+N = int(input())
+arr = []
+for _ in range(N):
+    arr.append(int(input()))
+for i in range(N):
+    print(sorted(arr, reverse = True)[i], end = ' ')
+
 
 #------ BOJ -----
 
