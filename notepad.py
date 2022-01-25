@@ -1,4 +1,51 @@
-#------ 나동빈 -----
+#------ BOJ ------
+
+#1715 재풀이
+
+import heapq
+
+N = int(input())
+
+cards = []
+for _ in range(N):
+    cards.append(int(input()))
+heapq.heapify(cards)
+result = 0
+
+while len(cards) != 1:
+    num1 = heapq.heappop(cards)
+    num2 = heapq.heappop(cards)
+    add = num1 + num2
+    result += add
+    heapq.heappush(cards, add)
+
+print(result)
+
+###
+
+cal = []
+
+if N == 1:
+    print(q[0])
+
+elif N == 2:
+    print(q[0] + q[1])
+
+while q:
+    if len(q) == 2:
+        print(sum(cal))
+        break
+    a = q.popleft()
+    b = q.popleft()
+    q.append(a+b)
+    q.sort()
+    cal.append(a+b)
+
+
+print(cal)
+print(sum(cal))
+
+#------ 나동빈 ------
 
 #실전 6-4. 두 배열의 원소 교체
 
