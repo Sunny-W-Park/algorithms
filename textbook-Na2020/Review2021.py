@@ -310,4 +310,37 @@ for i in range(N):
 
 print(sum(A))
 
+#실전 7-2. 부품 찾기
+
+import sys
+
+input = sys.stdin.readline
+N = int(input())
+items = list(map(int, input().split()))
+items = sorted(items)
+M = int(input())
+targets = list(map(int, input().split()))
+
+def binary_search(data, start, target, end):
+    while start <= end:
+        mid = (start + end) // 2
+        if data[mid] == target:
+            return mid
+        elif data[mid] > target:
+            end = mid - 1
+        elif data[mid] < target:
+            start = mid + 1
+        else:
+            return None
+
+for i in targets:
+    result = binary_search(items, 0, i, len(items)-1)
+    if result == None:
+        print('no', end = ' ')
+    else:
+        print('yes', end = ' ')
+
+
+#실전 7-3. 떡볶이 떡 만들기
+
 
