@@ -1,3 +1,62 @@
+#2022.01.28
+
+#1300 풀이과정 참고
+
+import sys
+
+N = int(input())
+K = int(input())
+start, end = 1, K
+
+while start <= end:
+    mid = (start + end) // 2
+    count = 0
+    for i in range(1, N+1):
+        count += min(N, mid//i)
+
+    if count < K:
+        start = mid + 1
+    elif count >= K:
+        end = mid - 1
+
+print(start)
+
+#2110 풀이과정 참고
+
+import sys
+
+input = sys.stdin.readline
+N, C = map(int, input().split())
+houses = []
+for _ in range(N):
+    houses.append(int(input()))
+houses.sort()
+
+start = 1
+end = houses[-1]
+ans = 0
+
+while start <= end:
+    mid = (start + end) // 2
+    count = 1
+    pos = houses[0]
+    d = float("INF")
+
+    for i in range(1, N):
+        if pos + mid <= houses[i]:
+            d = min(houses[i]-pos, d)
+            count += 1
+            pos = houses[i]
+
+    if count < C:
+        end = mid - 1
+
+    elif count >= C:
+        start = mid + 1
+        ans = max(ans, d)
+
+print(ans)
+
 #2022.01.27
 
 #2805
