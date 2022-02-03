@@ -343,4 +343,94 @@ for i in targets:
 
 #실전 7-3. 떡볶이 떡 만들기
 
+import sys
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+nums = list(map(int, input().split()))
+nums = sorted(nums)
+
+start = 0
+end = nums[-1]
+arr = []
+
+while start <= end:
+    result = 0
+    mid = (start + end) // 2
+    for i in nums:
+        if i > mid:
+            result += i - mid
+    if result >= M:
+        arr.append(mid)
+        start = mid + 1
+    else:
+        end = mid - 1
+
+print(arr[-1])
+
+#실전 8-2. 1로 만들기
+
+X = int(input())
+d = [0] * 30001
+
+for i in range(2, X+1):
+    d[i] = d[i-1] + 1
+    if i % 5 == 0:
+        d[i] = min(d[i], d[i//5] + 1)
+    if i % 3 == 0:
+        d[i] = min(d[i], d[i//3] + 1)
+    if i % 2 == 0:
+        d[i] = min(d[i], d[i//2] + 1)
+
+print(d[X])
+
+#실전 8-3. 개미전사
+
+N = int(input())
+arr = list(map(int, input().split()))
+d = [0] * N
+d[0] = arr[0]
+d[1] = max(arr[0], arr[1])
+
+for i in range(2, N):
+    d[i] = max(d[i-1], d[i-2]+ arr[i])
+
+print(d[N-1])
+
+#실전 8-4. 바닥공사
+
+N = int(input())
+
+d = [0] * 30001
+d[1] = 1
+d[2] = 3
+
+for i in range(3, N+1):
+    d[i] = (d[i-1] + 2*d[i-2]) %796796
+
+print(d[N])
+
+#실전 8-5. 효율적인 화폐 구성
+
+import sys
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+coins = []
+for _ in range(N):
+    coins.append(int(input()))
+d = [10001] * (M+1+max(coins))
+d[0] = 0
+for i in coins:
+    d[i] = 1
+
+for i in range(N):
+    for j in range(coins[i], M+1):
+        if d[j] != 10001:
+            d[j+coins[i]] = min(d[j+coins[i]], d[j]+1)
+
+if d[M] == 10001:
+    print(-1)
+else:
+    print(d[M])
 
