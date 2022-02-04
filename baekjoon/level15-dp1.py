@@ -41,5 +41,38 @@ for _ in range(T):
     fibo(n)
     print(count_zero, count_one)
 
+#9461
+
+import sys
+
+input = sys.stdin.readline
+T = int(input())
+for _ in range(T):
+    d = [0] * 101
+    d[0] = 1
+    d[1], d[2] = 1, 1
+    d[3], d[4] = 2, 2
+    n = int(input())
+    if n <= 4:
+        print(d[n-1])
+    else:
+        for i in range(5, n+1):
+            d[i] = d[i-5] + d[i-1]
+        print(d[n-1])
+
+#1463
+
+import sys
+N = int(input())
+d = [0] * (N+1)
+
+for i in range(2, N+1):
+    d[i] = d[i-1] + 1
+    if i % 2 == 0:
+        d[i] = min(d[i], d[i//2] + 1 )
+    if i % 3 == 0:
+        d[i] = min(d[i], d[i//3] + 1)
+
+print(d[N])
 
 

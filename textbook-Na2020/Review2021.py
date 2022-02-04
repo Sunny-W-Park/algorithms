@@ -434,5 +434,3 @@ if d[M] == 10001:
 else:
     print(d[M])
 
-
-
