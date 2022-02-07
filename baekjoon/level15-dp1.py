@@ -60,6 +60,41 @@ for _ in range(T):
             d[i] = d[i-5] + d[i-1]
         print(d[n-1])
 
+#1149 재풀이
+
+N = int(input())
+C = []
+for i in range(N):
+    C.append(list(map(int, input().split())))
+for i in range(1, len(C)):
+    C[i][0] = min(C[i-1][1], C[i-1][2]) + C[i][0]
+    C[i][1] = min(C[i-1][0], C[i-1][2]) + C[i][1]
+    C[i][2] = min(C[i-1][0], C[i-1][1]) + C[i][2]
+
+print(min(C[N-1]))
+
+#1149
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+result = [[3001 for _ in range(3)] for _ in range(N)]
+cost = []
+for _ in range(N):
+    cost.append(list(map(int, input().split())))
+
+for i in range(1, N):
+    for j in range(3):
+        for k in range(3):
+            if j!= k:
+                result[i][k] = min(result[i][k], cost[i-1][j] + cost[i][k])
+
+    for q in range(3):
+        cost[i][q] = result[i][q]
+
+print(min(result[N-1]))
+
 #1463
 
 import sys
