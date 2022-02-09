@@ -1,4 +1,64 @@
-#TBD
+#2022.02.10
+
+#11052
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+B = list(map(int, input().split()))
+C = [0]
+for i in range(N):
+    C.append(B[i])
+dp = [0 for _ in range(N+1)]
+
+dp[1] = C[1]
+
+for i in range(2, N+1):
+    for j in range(1, i+1):
+        if dp[i] < dp[i-j] + C[j]:
+            dp[i] = dp[i-j] + C[j]
+print(dp[N])
+
+#2156
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+W = [0]
+for i in range(N):
+    W.append(int(input()))
+dp = [0]
+dp.append(W[1])
+
+if N > 1:
+    dp.append(W[1] + W[2])
+
+for i in range(3, N+1):
+    dp.append(max(dp[i-1], dp[i-3] + W[i-1] + W[i], dp[i-2] + W[i]))
+
+print(dp[N])
+
+#2156
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+W = [0 for _ in range(10001)]
+for i in range(1, N):
+    W[i] = int(input())
+dp = [0 for _ in range(10001)]
+
+dp[1] = W[1]
+dp[2] = W[1] + W[2]
+
+for i in range(3, N+1):
+    dp[i] = max(dp[i-2] + W[i], dp[i-3] + W[i-1] + W[i], dp[i-1])
+
+print(dp[N])
+
 
 #2022.01.28
 
