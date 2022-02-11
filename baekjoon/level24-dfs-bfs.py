@@ -46,3 +46,32 @@ print()
 for i in range(len(result_bfs)):
     print(result_bfs[i], end = ' ')
 
+#2606
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+M = int(input())
+visited = [0] * (N+1)
+g = [[] for _ in range(N+1)]
+for i in range(M):
+    a, b = map(int, input().split())
+    g[a].append(b)
+    g[b].append(a)
+
+def dfs(g, visited, start):
+    visited[start] = 1
+    for i in range(len(g[start])):
+        if visited[g[start][i]] == 0:
+            dfs(g, visited, g[start][i])
+
+dfs(g, visited, 1)
+
+count = 0
+for i in range(1, N+1):
+    if i != 1 and visited[i] == 1:
+        count += 1
+
+print(count)
+
