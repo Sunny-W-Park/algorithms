@@ -75,4 +75,47 @@ for i in range(1, N+1):
 
 print(count)
 
-#2667 (TBU)
+#2667
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+N = int(input())
+g = [[0 for _ in range(N)] for _ in range(N)]
+for i in range(N):
+    l = str(input())
+    for j in range(N):
+        g[i][j] = int(l[j])
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+count = 0
+list_town_count = []
+
+for i in range(N):
+    for j in range(N):
+        if g[i][j] == 1:
+            g[i][j] = 999
+            count += 1
+            town_count = 1
+            town = deque([i, j])
+            while len(town) != 0:
+                tx = town.popleft()
+                ty = town.popleft()
+                for k in range(4):
+                    if 0 <= tx + dx[k] <= (N-1) and 0 <= ty + dy[k] <= (N-1):
+                        ntx = tx + dx[k]
+                        nty = ty + dy[k]
+                        if g[ntx][nty] == 1:
+                            g[ntx][nty] = 999
+                            town.append(ntx)
+                            town.append(nty)
+                            town_count += 1 
+            list_town_count.append(town_count)
+
+print(count)
+for i in range(count):
+    print(sorted(list_town_count)[i])
+
+
