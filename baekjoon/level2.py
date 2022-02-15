@@ -64,4 +64,23 @@ else:
     H = H
     print(H, M)
 
+#2525
+
+A, B = map(int, input().split())
+C = int(input())
+
+C_time = C // 60
+C_minute = C - (C_time * 60)
+
+A = A + C_time
+B = B + C_minute
+
+if B >= 60:
+    B = B - 60
+    A = A + 1
+
+while A >= 24:
+    A = A - 24
+
+print(A, B)
 
