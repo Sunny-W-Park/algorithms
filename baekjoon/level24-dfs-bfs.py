@@ -118,4 +118,79 @@ print(count)
 for i in range(count):
     print(sorted(list_town_count)[i])
 
+#1012
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+T = int(input())
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+for _ in range(T):
+    M, N, K = map(int, input().split())
+    g = [[0 for _ in range(M)] for _ in range(N)]
+    count = 0
+    for _ in range(K):
+        x, y = map(int, input().split())
+        g[y][x] = 1
+
+    for i in range(N):
+        for j in range(M):
+            if g[i][j] == 1:
+                count += 1
+                g[i][j] = 999
+                q = deque([i, j])
+                while len(q) != 0:
+                    pos_x = q.popleft()
+                    pos_y = q.popleft()
+                    for k in range(4):
+                        nx = pos_x + dx[k]
+                        ny = pos_y + dy[k]
+                        if 0 <= nx <= N-1 and 0 <= ny <= M-1:
+                            if g[nx][ny] == 1:
+                                g[nx][ny] = 999
+                                q.append(nx)
+                                q.append(ny)
+
+    print(count)
+
+#2178 BFS로 풀기
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+N, M = map(int, input().split())
+
+graph_line = []
+graph = [[0 for _ in range(M)] for _ in range(N)]
+for _ in range(N):
+    graph_line.append(str(input()))
+for i in range(N):
+    for j in range(M):
+        graph[i][j] = int(graph_line[i][j])
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+start_x, start_y = 0, 0
+q = deque([start_x, start_y])
+
+while len(q) != 0:
+    pos_x = q.popleft()
+    pos_y = q.popleft()
+    for i in range(4):
+        nx = pos_x + dx[i]
+        ny = pos_y + dy[i]
+        if 0 <= nx <= N-1 and 0 <= ny <= M-1:
+            if graph[nx][ny] == 1:
+                graph[nx][ny] = graph[pos_x][pos_y] + 1
+                q.append(nx)
+                q.append(ny)
+
+print(graph[N-1][M-1])
+
 
