@@ -24,29 +24,6 @@ for i in range(N):
     print()
     visited = [0 for _ in range(N)]
 
-
-#11403 해설
-
-n = int(input())
-visit = [0 for i in range(n)]
-s = []
-def dfs(v):
-    for i in range(n):
-        if visit[i] == 0 and s[v][i] == 1:
-            visit[i] = 1
-            dfs(i)
-for i in range(n):
-    s.append(list(map(int, input().split())))
-for i in range(n):
-    dfs(i)
-    for j in range(n):
-        if visit[j] == 1:
-            print(1, end=' ')
-        else:
-            print(0, end=' ')
-    print()
-    visit = [0 for i in range(n)]
-
 #2022.02.18
 
 #2178 BFS로 풀기
@@ -145,7 +122,6 @@ for i in range(3, N+1):
     dp[i] = max(dp[i-2] + W[i], dp[i-3] + W[i-1] + W[i], dp[i-1])
 
 print(dp[N])
-
 
 #2022.01.28
 
@@ -411,7 +387,6 @@ for i in range(N):
             arr[i] = j
     print(arr[i], end = ' ')
 
-
 #2022.01.05
 
 #10989
@@ -428,7 +403,6 @@ for i in range(len(check_list)):
     if check_list[i] != 0:
         for j in range(check_list[i]):
             print(i + 1)        #해당 index(i+1)를 횟수(j) 만큼 출력
-
 
 #2021.12.16
 
@@ -472,7 +446,6 @@ for i in range(t):
     else:
         print(0)
 
-
 #4673
 
 natural_num = set(range(1, 10001))
@@ -490,7 +463,6 @@ result_num = sorted(natural_num - generated_num)
 
 for k in result_num:
     print(k)
-
 
 #2021.12.28 
 
