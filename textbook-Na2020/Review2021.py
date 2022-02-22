@@ -434,3 +434,69 @@ if d[M] == 10001:
 else:
     print(d[M])
 
+#실전 9-2 미래도시
+
+import sys
+input = sys.stdin.readline
+
+N, M = map(int, input().split())
+INF = int(1e9)
+graph = [[INF for _ in range(N+1)] for _ in range(N+1)]
+
+for i in range(N+1):
+    for j in range(N+1):
+        if i == j:
+            graph[i][j] = 0
+
+for _ in range(M):
+    a, b = map(int, input().split())
+    graph[a][b] = 1
+    graph[b][a] = 1
+
+X, K = map(int, input().split())
+
+for k in range(1, N+1):
+    for i in range(1, N+1):
+        for j in range(1, N+1):
+            if i!=j and i!=k and j!=k:
+                graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
+
+distance = graph[1][K] + graph[K][X]
+
+if distance >= INF:
+    print(-1)
+else:
+    print(distance)
+
+#실전 9-3. 전보
+
+import sys
+import heapq
+input = sys.stdin.readline
+
+N, M, C = map(int, input().split())
+graph = [[] for _ in range(N+1)]
+INF = int(1e9)
+distance = [INF for _ in range(N+1)]
+for _ in range(M):
+    X, Y, Z = map(int, input().split())
+    graph[X].append((Y, Z))
+
+
+def dijkstra(C):
+    q = []
+    distance[C] = 0
+    heapq.heappush(q, (0, C))
+    while q:
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist:
+            continue
+        for i in graph[now]:
+            cost = dist + i[1]
+            if cost < distance[i[0]]:
+                distance[i[0]] = cost
+                heapq.heappush(q, (cost, i[0]))
+
+dijkstra(C)
+print(distance)
+
