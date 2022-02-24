@@ -193,4 +193,28 @@ while len(q) != 0:
 
 print(graph[N-1][M-1])
 
+#1697 재풀이
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+def bfs():
+    q = deque()
+    q.append(N)
+    while q:
+        x = q.popleft()
+        if x == K:
+            print(count[x])
+            break
+
+        for j in (x-1, x+1, x*2):
+            if 0 <= j <= 100000 and count[j] == 0:
+                count[j] = count[x] + 1
+                q.append(j)
+
+N, K = map(int, input().split())
+count = [0] * 100001
+bfs()
+
 
