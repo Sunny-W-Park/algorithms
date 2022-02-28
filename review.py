@@ -1,3 +1,40 @@
+#2022.02.28
+
+#11053 LIS 재풀이: DP
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+A = list(map(int, input().split()))
+dp = [1] * N
+
+for i in range(N):
+    for j in range(i):
+        if A[i] > A[j]:
+            dp[i] = max(dp[i], dp[j]+1)
+print(max(dp))
+
+#12015 LIS 재풀이: 이분탐색
+
+import sys
+import bisect
+from bisect import bisect_left
+input = sys.stdin.readline
+
+N = int(input())
+A = list(map(int, input().split()))
+
+arr = [0]
+
+for i in A:
+    if arr[-1] < i:
+        arr.append(i)
+    else:
+        arr[bisect.bisect_left(arr, i)] = i
+
+print(len(arr)-1)
+
 #2022.02.20
 
 #11403 재풀이
