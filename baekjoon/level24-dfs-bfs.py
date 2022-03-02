@@ -271,3 +271,37 @@ else:
         print(count_days-1)
 
 
+#7562
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+T = int(input())
+
+dx = [-2, -1, -2, -1, 2, 1, 2, 1]
+dy = [-1, -2, 1, 2, -1, -2, 1, 2]
+
+for _ in range(T):
+    I = int(input())
+    x_start, y_start = map(int, input().split())
+    x_end, y_end = map(int, input().split())
+
+    maps = [[0 for _ in range(I)] for _ in range(I)]
+    maps[x_start][y_start] = 1
+
+    q = deque()
+    q.append((x_start, y_start))
+    while len(q) != 0:
+        x, y = q.popleft()
+        if x == x_end and y == y_end:
+            print(maps[x][y]-1)
+            break
+
+        for i in range(8):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if 0 <= nx <= I-1 and 0 <= ny <= I-1:
+                if maps[nx][ny] == 0:
+                    maps[nx][ny] = maps[x][y] + 1
+                    q.append((nx, ny))
