@@ -1,0 +1,25 @@
+--SET 1. 루시와 엘라 찾기
+
+SELECT ANIMAL_ID, NAME, SEX_UPON_INTAKE
+FROM ANIMAL_INS
+WHERE NAME IN ('Lucy', 'Ella', 'Pickle', 'Rogan', 'Sabrina', 'Mitty')
+ORDER BY ANIMAL_ID;
+
+--SET 2. 이름에 el이 들어가는 동물 찾기
+
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE = 'Dog' and (NAME LIKE '%el%' OR NAME LIKE '%El%' or NAME like '%EL%')
+ORDER BY NAME;
+
+--SET 3. 중성화 여부 파악하기
+
+SELECT ANIMAL_ID, NAME, CASE
+    WHEN SEX_UPON_INTAKE LIKE '%Spayed%' THEN 'O'
+    WHEN SEX_UPON_INTAKE LIKE '%Neutered%' THEN 'O'
+    ELSE 'X'
+END AS 중성화
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID;
+
+--SET 4. 
