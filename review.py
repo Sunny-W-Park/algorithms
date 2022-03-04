@@ -544,7 +544,7 @@ for i in range(t):
     a = 0
     b = 0
     for j in range(len(prime)):
-        if prime[j] >= n/2:         ##2로 나눈 중간값부터 탐색
+        if prime[j] >= n/2:         ##2로 나눈 중간값부터 탐색(두 소수의 차이가 가장 작은 것)
             if n - prime[j] in prime:       ## "in prime" 으로 다른 수 탐색
                 b = prime[j]
                 a = n - prime[j]

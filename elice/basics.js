@@ -16,6 +16,7 @@ document.write(box);
 
 document.writeln(변수명); // 출력값 사이에 공백 삽입
 
+
 // 03. 자바스크립트 데이터 타입
 
 var str1 = "Hello World"
@@ -125,5 +126,67 @@ document.write(empty);
 var t = true;
 var f = false;
 document.write(t, f);
+
+
+// 04. 자바스크립트의 프로퍼티와 메서드
+
+// 문자열 프로퍼티와 메서드
+var str1 = "Hello World";
+str1.length;
+str1.charAt(0);
+str1.split(" ");
+
+// 배열의 프로퍼티와 메서드
+var fruit = ["a", "b", "c"];
+fruit.length;
+fruit.push("딸기"); // 배열 뒤 삽입 (python append)
+fruit.unshift("레몬"); // 배열 앞 삽입
+fruit.pop(); // 배열 뒤 데이터 제거 (python pop)
+fruit.shift(); // 배열 앞 데이터 제거
+
+// math의 수학 연산 메서드
+Math.abs(-3); //절대값
+Math.ceil(0.3); //올림
+Math.floor(10.9) //내림
+Math.random(); //임의의 숫자 출력
+
+// 문자의 숫자 전환
+parseInt("20.6"); // 문자 -> 정수
+parseFloat("20.6"); // 문자 -> 실수
+
+// 실습 9. 프로퍼티와 메서드 - 문자열
+var str1 = "Hello World";
+a = str1.length;
+b = str1.charAt(0);
+c = str1.split(" ");
+document.write(a, b, c); 
+
+// 실습 10. 프로퍼티와 메서드 - 배열
+var fruit = ["Apple", "Banana", "Tomato"];
+a = fruit.length;
+fruit.push("A");
+fruit.unshift("B");
+document.write(a, fruit);
+fruit.pop();
+fruit.shift();
+document.write(fruit);
+
+// 실습 11. 프로퍼티와 메서드 - Math
+document.write(Math.abs(-3), Math.ceil(0.3), Math.floor(0.9), Math.random());
+
+// 실습 12. 프로퍼티와 메서드 - 문자의 숫자 변환
+var str1 = "20.14";
+a = parseInt(str1);
+b = parseFloat(str1);
+document.write(a, b);
+
+// 보조자료 - 삼각형의 넓이를 구하는 함수 생성
+function triangle(width, height){
+    return width * height / 2;
+}
+document.write(triangle(width, height));
+
+// 보조자료 - 배열 안의 배열 데이터에 접근
+document.write(arrTest[1][2])
 
 
