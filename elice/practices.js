@@ -112,3 +112,67 @@ else {
 
 //3. 반복문
 
+//for문
+//for(초기화한 변수값; 조건; 증감표시){수행 명령}
+for (var i = 0; i < 10; i++){
+    console.log(i);
+}
+//0, 1, 2, 3.. 9
+
+//while문
+//while(조건){ 수행 명령 }
+var num = 0;
+while (var < 10){
+    console.log(num);
+    num++;
+}
+//0, 1, 2, 3.. 9
+
+//do~while문
+//do{수행할 명령} while(조건);
+//while 조건과 관계 없이, do 명령을 무조건 실행부터 한다.
+var i = 12;
+do {
+    console.log(i);
+    i++;
+}
+while (i < 10);
+
+//실습9. 반복문 - while 문
+var num = 0;
+while (num < 10){
+    document.write(num);
+    num++;
+}
+
+//실습10. 조건문- do~while 문
+var i = 12;
+do {
+    document.write(i);
+    i++;
+}
+while (i < 10)
+
+//실습11. for문
+for(var i = 1; i < 10; i++){
+    document.write(2*i);
+}
+
+//4. 자바스크립트의 활용
+//주사위 게임
+//Math.random(): 0에서 1사이에 있는 난수 출력
+var dice = Math.floor(Math.random() * 6) + 1
+
+//소수 출력
+function isPrime(n){
+    var divisor = 2;
+    while(n > divisor){
+        if(n % divisor === 0){
+            return false;
+        } else {
+            divisor++;
+        }
+    } return true;
+}
+
+

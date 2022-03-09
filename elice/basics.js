@@ -189,4 +189,3 @@ document.write(triangle(width, height));
 // 보조자료 - 배열 안의 배열 데이터에 접근
 document.write(arrTest[1][2])
 
-
