@@ -79,7 +79,11 @@ var c = 60;
 
 if (a > b){
     document.write("a > b");
-}
+]                                                                     
+    basics.js                  |  66 for _ in range(N):                                                           
+    practices.js               |  67     arr.extend(list(map(int, input().split())))                              
+▸ programmers/                 |  68 arr.sort()                                                                   
+▸ snippets/                    |  69 print(arr[-N]) }
 else if (b > c){
     document.write("b > c");
 }
@@ -175,4 +179,66 @@ function isPrime(n){
     } return true;
 }
 
+//문자열 거꾸로 출력하기
+function reverse(str){
+    var reverStr = '';
+    for (var i = str.length-1; i >= 0; i--){
+        reverStr = reverStr + str.charAt(i);
+    }
+    return reverStr;
+}
+//str.charAt(idx): 문자열의 idx번째 문자
+console.log(reverse('Hello'));
 
+
+//실습12 - 주사위 게임 만들기
+document.write(Math.floor(Math.random() * 6))
+
+//실습13 - 소수 출력하기
+function isPrime(n){
+    if(n === 1){
+        return false;
+    }
+    else{
+        var divisor = 2;
+        while(divisor < n){
+            if(n % divisor === 0){
+                return false;
+            }
+            else{
+                divisor++;
+            }
+        }
+        return true;
+    }
+}
+for(var i = 1; i <= 10; i++) {
+    document.writeln(i, isPrime(i));
+}
+
+//실습14 - 문자열 거꾸로 출력하기
+function reverse(str){
+    var reverStr = "";
+    for(var i = str.length-1; i >= 0; i--){
+        reverStr = reverStr + str.charAt(i);
+    }
+    return reverStr;
+}
+
+//보조자료 - 구구단 만들기
+function timesTable(n){
+    for(var i = 1; i < 10; i++){
+        document.writeln(n, "\n", "x", "\n", i, "\n", "=", "\n", n*i);
+        document.write('<br>');
+    }
+}
+timesTable(2); // 2단만 출력
+timesTable(3); // 3단만 출력
+
+//보조자료 - 반복문으로 구구단 완성하기
+for(var i = 2; i < 10; i++){
+    for(var j = 1; j < 10; j++){
+        document.writeln(i, "\n", "x", "\n", j, "\n", "=", "\n", i*j);
+        document.write('<br>');
+    }
+}
