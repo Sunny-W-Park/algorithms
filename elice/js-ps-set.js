@@ -150,5 +150,107 @@ rl.on("close", function(){
     process.exit();
 });
 
+// 5. 3, 6, 9 게임
 
+for(i = 1; i <= 30; i++){
+    var confirm = ''
+    var clap = false;
+    confirm += i
+    for(j = 0; j <= confirm.length-1; j++){
+        if(confirm[j] == '3' || confirm[j] == '6' || confirm[j] == '9'){
+            clap = true;
+        }
+    }
+    if(clap === true){
+        console.log('짝!');
+        }
+    else{
+        console.log(parseInt(confirm));
+        }
+}
+
+// 6. 숫자 출력
+var N = 0;
+var str = '';
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+rl.on("line", function(line){
+    N = line;
+    for(i = 1; i <= N; i++){
+        if(i < N){
+            str += i;
+            str += ', ';
+        }
+        if(i == N){
+            str += i;
+        }
+    }
+    rl.close();
+});
+rl.on("close", function(){
+    console.log(str);
+    process.exit();
+});
+
+// 7. 피보나치 수열 출력하기
+var N = 0;
+var arr = [];
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+rl.on("line", function(line){
+    N = line;
+    rl.close();
+});
+rl.on("close", function(){
+    arr.push(0)
+    arr.push(1)
+    if(N == 1){
+        var zero = arr.slice(0, 1);
+        console.log(zero);
+    }
+    else{
+        while(arr[arr.length-1] + arr[arr.length-2] < N){
+            arr.push(arr[arr.length-1] + arr[arr.length-2]);
+        }
+        console.log(arr);
+    }
+    process.exit();
+});
+
+//8. 촉촉한 초코칩
+var str = '';
+var result = 0;
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+rl.on("line", function(line){
+    str = line;
+    rl.close();
+});
+rl.on("close", function(){
+    if(str.includes('촉촉한 초코칩')){
+        var start = 0;
+        var end = 7;
+        while(end <= str.length){
+            var check = str.slice(start, end);
+            if (check === '촉촉한 초코칩'){
+                result += 1;
+            }
+            start += 1;
+            end += 1;
+        }
+    }
+    console.log(result);
+    process.exit();
+});
+
+//9. 노동요
 
