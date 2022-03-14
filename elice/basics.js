@@ -1,20 +1,19 @@
 // 02. 자바스크립트의 변수
 
-var fruit; // 변수 선언
+var fruit = ""; // 변수 선언
 fruit = "apple" // 변수 초기화
 var fruit = "apple" // 변수 선언 + 초기화
 console.log(fruit) // 변수 안의 데이터 확인
 
 // 실습1. 변수 생성
-
 var fruit = "apple";
 var box = "banana";
+console.log(fruit, box); // 데이터 확인
 document.write(fruit);
 document.write(box);
 var box = "tomato";
 document.write(box);
-
-document.writeln(변수명); // 출력값 사이에 공백 삽입
+//document.writeln(변수명); // 출력값 사이에 공백 삽입
 
 
 // 03. 자바스크립트 데이터 타입

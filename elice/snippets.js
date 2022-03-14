@@ -15,6 +15,23 @@ rl.on("close", function(){
     process.exit();
 });
 
+// 정수 리스트 입력
+
+var list = [];
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+rl.on("line", function(line){
+    list = line.split(" ").map((el) => parseInt(el));
+    rl.close();
+})
+rl.on("close", function(){
+    console.log(list);
+    process.quit();
+})
+
 // 입력 여러 줄
 
 var N = 0; //N개 줄
