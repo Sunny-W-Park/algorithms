@@ -414,11 +414,34 @@ console.log(lunch);
 console.log(lunch.length);
 
 //15. B로 시작하는 과일을 찾아줘(복기)
-
 var foods = ['apple', 'banana', 'orange', 'blueberry', 'strawberry'];
 var b_foods = foods.filter(f => f[0] === 'b');
 console.log(b_foods);
 
 //16. 특정 학생 정보 바꾸기(복기)
+const students = [
+    {
+        name: 'john',
+        studentId: 2020123456,
+        major: 'business'
+    },
+    {
+        name: 'elice',
+        studentId: 2015111111,
+        major: 'statistics'
+    },
+    {
+        name: 'jennifer',
+        studentId: 2017000000,
+        major: 'visual design'
+    },
+]
 
-
+// 1. elice 학생의 전공을 'computer science'로 바꿔주세요.
+for(var i = 0; i < 3; i++){
+    if(students[i].name == 'elice'){
+        students[i].major = 'computer science';
+    }
+}
+// 2. 웹 화면에 students 정보를 출력해 제대로 수정되었는지 확인하세요.
+console.log(students); 
