@@ -151,7 +151,6 @@ rl.on("close", function(){
 });
 
 // 5. 3, 6, 9 게임
-
 for(i = 1; i <= 30; i++){
     var confirm = ''
     var clap = false;
@@ -253,4 +252,39 @@ rl.on("close", function(){
 });
 
 //9. 노동요
+var str = '';
+var result = '';
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+rl.on("line", function(line){
+    str = line;
+    rl.close();
+});
+rl.on("close", function(){
+    for(var i = 0; i <= str.length-1; i++){
+        if(str[i] === ' '){
+            result += '링디기디기' + '\n';
+        }
+        else if(str[i] === '.'){
+            result += '딩딩딩' + '\n';
+        }
+        else{
+            result += '링딩동 '
+        }
+    }
+    console.log(result);
+    process.exit();
+});
+
+//10. 타격왕이 될거야
+//11. 문자열은 빼달라구
+//12. 합격 여부 확인하기
+//13. 짝수 판별기
+//14. 점심 메뉴 찾기
+//15. B로 시작하는 과일을 찾아줘
+//16. 특정 학생 정보 바꾸기
+
 

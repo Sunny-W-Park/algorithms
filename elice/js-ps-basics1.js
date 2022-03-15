@@ -121,7 +121,7 @@ rl.on("close", function(){
     process.exit();
 })
 
-//11. 용돈 압수
+//11. 용돈 압수(복기 필요)
 let arr = [];
 const readline = require("readline");
 const rl = readline.createInterface({
@@ -136,6 +136,10 @@ rl.on("close", function(){
     console.log(arr);
     process.exit();
 })
+
+//12. 훈민정음
+//13. 충성! 입대를 명 받았습니다!
+//14. 펜 파인애플 애플 펜
 
 //16. 한 번에 여러 입력받기 3
 var count = 0;
