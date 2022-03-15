@@ -1,5 +1,4 @@
-//변수 설정
-//var, let, const 차이
+//변수 설정: var, let, const 차이
 
 
 //sort
@@ -54,4 +53,10 @@ arr.sort(function(a, b){
 arr.sort(function(a, b){
     return a.price - b.price;
 });
+
+
+//문자열 match(* 주의: 문자열에서만 검색, 배열은X)
+str.match('검색 문자열'); // 검색 문자열이 포함된 단어 출력
+//match 정규표현식: .match(/'검색문자'/g): 대소문자 구분 O
+//match 정규표현식; .match(/'검색문자'/gi): 대소문자 구분 X
 
