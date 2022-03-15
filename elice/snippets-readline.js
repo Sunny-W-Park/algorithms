@@ -33,29 +33,22 @@ rl.on("close", function(){
 })
 
 // 입력 여러 줄
-
-var N = 0; //N개 줄
-var count = 0; //입력 횟수
-var result = [];
+var input = [];
 const readline = require("readline");
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
+var count = 0;
 rl.on("line", function(line){
-    count += 1;
-    if(count === 1){
-        N = line;
+    count += 1
+    input.push(parseInt(line));
+    if(count == 2){
+        rl.close();
     }
-    else{
-        //
-    }
-    if(count > N){
-        rl.close()
-    }
-})
+});
 rl.on("close", function(){
-    console.log(result);
-    process.quit();
-})
+    console.log(input);
+    process.exit;
+});
 

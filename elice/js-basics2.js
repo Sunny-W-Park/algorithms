@@ -80,10 +80,6 @@ var c = 60;
 if (a > b){
     document.write("a > b");
 ]                                                                     
-    basics.js                  |  66 for _ in range(N):                                                           
-    practices.js               |  67     arr.extend(list(map(int, input().split())))                              
-▸ programmers/                 |  68 arr.sort()                                                                   
-▸ snippets/                    |  69 print(arr[-N]) }
 else if (b > c){
     document.write("b > c");
 }
@@ -192,7 +188,7 @@ console.log(reverse('Hello'));
 
 
 //실습12 - 주사위 게임 만들기
-document.write(Math.floor(Math.random() * 6))
+document.write(Math.floor(Math.random() * 6) + 1)
 
 //실습13 - 소수 출력하기
 function isPrime(n){
