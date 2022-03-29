@@ -1,6 +1,7 @@
 #15686
 
 import sys
+import itertools
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
@@ -13,9 +14,9 @@ chicken = []
 for i in range(N):
     for j in range(N):
         if graph[i][j] == 1:
-            houses.append((i, j))
+            houses.append((i+1, j+1))
         if graph[i][j] == 2:
-            chicken.append((i, j))
+            chicken.append((i+1, j+1))
 
 chicken_distance = []
 for i in chicken:
@@ -23,16 +24,16 @@ for i in chicken:
     for j in houses:
          d += (abs(i[0]-j[0]) + abs(i[1]-j[1]))
     chicken_distance.append((d, i[0], i[1]))
-chicken_distance.sort()
-chicken_distance = chicken_distance[0:M]
 
-result = 0
-for i in houses:
-    _min = int(10**9)
-    for j in chicken_distance:
-        _min = min(_min, (abs(i[0]-j[1])+abs(i[1]-j[2])))
-    result += _min
+combs = list(itertools.combinations(chicken_distance, M))
+distances = []
+for i in combs:
+    result = 0
+    for j in houses:
+        _min = int(10**9)
+        for k in range(M):
+            _min = min(_min, abs(j[0]-i[k][1])+abs(j[1]-i[k][2]))
+        result += _min
+    distances.append(result)
 
-print(result)
-
-
+print(min(distances))
