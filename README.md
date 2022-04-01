@@ -1,12 +1,7 @@
 # Algorithms
 Daily Algorithms (Dec2020 ~)
 
-<pre><code>
+### Branch settings
+* desktop: linux
+* mac: macOS
 
-import time
-
-start = time.time()
-end = time.time()
-print("---%s seconds ---" % (end-start))
-
-</pre></code>
