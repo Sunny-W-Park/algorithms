@@ -1,3 +1,25 @@
+#2022.04.05
+
+#9251 DP
+
+#9251 재풀이
+
+word1 = input()
+word2 = input()
+len_w1 = len(word1)
+len_w2 = len(word2)
+dp = [0 for _ in range(len_w2)]
+
+for i in range(len_w1):
+    count = 0
+    for j in range(len_w2):
+        if count < dp[j]:
+            count = dp[j]
+        elif word1[i] == word2[j]:
+            dp[j] = count + 1
+
+print(max(dp))
+
 #2022.04.01
 
 #11000 우선순위큐
